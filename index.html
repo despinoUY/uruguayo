@@ -46,8 +46,46 @@
         <h1>Las tablas del Uruguayo</h1>
         <p class="lead">¿Cansado de no encontrar las tablas del fútbol uruguayo? Acá las tenés.</p>
       </div>
+<!--
+      <iframe width="100%" height="440px" src="https://docs.google.com/spreadsheets/d/1kCt6Di12rAM31ubWmA1U3NbY4jHKdtDBVX2dpoiSW9w/pubhtml?gid=1891133904&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Torneo Apertura</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-lg-2">Equipo</th>
+              <th class="col-lg-2">PJ</th>
+              <th class="col-lg-2">PG</th>
+              <th class="col-lg-2">PE</th>
+              <th class="col-lg-2">PP</th>
+              <th class="col-lg-2">Puntos</th>
+            </tr>
+          </thead>
+          <tbody id="apertura">
+          </tbody>
+        </table>
+      </div>
 
-    <iframe width="100%" height="440px" src="https://docs.google.com/spreadsheets/d/1kCt6Di12rAM31ubWmA1U3NbY4jHKdtDBVX2dpoiSW9w/pubhtml?gid=1891133904&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+      <div class="panel panel-default">
+        <div class="panel-heading">Tabla del Descenso</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-lg-2">Equipo</th>
+              <th class="col-lg-2">PJ</th>
+              <th class="col-lg-2">2016</th>
+              <th class="col-lg-2">2017</th>
+              <th class="col-lg-2">Total</th>
+              <th class="col-lg-2">Avg.</th>
+            </tr>
+          </thead>
+          <tbody id="descenso">
+          </tbody>
+        </table>
+      </div>
 
     </div>
 
@@ -55,5 +93,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        // ID of the Google Spreadsheet
+        var spreadsheetID = "1NHSPAJEYSOqffWPy_pAnVVwsftfk1nisJ9OMWl0d0rQ";
+
+        // Make sure it is public or set to Anyone with link can view 
+        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+        $.getJSON(url, function(data) {
+
+          var entry = data.feed.entry;
+
+          $(entry).each(function(){
+          // Column names are name, age, etc.
+          $('#apertura').append('<tr><td></td><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
+
+          $('#descenso').append('<tr><td></td><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          });
+        });
+    </script>
   </body>
 </html>
