@@ -25,6 +25,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- End Bootstrap -->
 
+    <!-- Begin Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <!-- End Chart.js -->
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,60 +66,18 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Inicio</a></li>
-              <li><a href="more-stats.html">Más estadísticas</a></li>
+              <li><a href="index.html">Inicio</a></li>
+              <li class="active"><a href="more-stats.html">Más estadísticas</a></li>
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
 
-      <!--
-      <div class="page-header">
-        <h1>Las tablas del Uruguayo</h1>
-        <p class="lead">¿Cansado de no encontrar las tablas del fútbol uruguayo? Acá las tenés.</p>
-      </div>
-      -->
-
-      <div class="col-lg-6" style="padding: 0">
       <div class="panel panel-default">
-        <div class="panel-heading">Torneo Apertura</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th >Equipo</th>
-              <th >PJ</th>
-              <th >PG</th>
-              <th >PE</th>
-              <th >PP</th>
-              <th >Puntos</th>
-            </tr>
-          </thead>
-          <tbody id="apertura">
-          </tbody>
-        </table>
-      </div>
-      </div>
-
-      <div class="col-lg-6" style="padding: 0">
-      <div class="panel panel-default">
-        <div class="panel-heading">Tabla del Descenso</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th >Equipo</th>
-              <th >PJ</th>
-              <th >2016</th>
-              <th >2017</th>
-              <th >Total</th>
-              <th >Avg.</th>
-            </tr>
-          </thead>
-          <tbody id="descenso">
-          </tbody>
-        </table>
-      </div>
-      </div>
+        <div class="panel-heading">Gráfico de evolución de posiciones del Torneo Apertura</div>
+        <canvas id="chartAp" width="100%"></canvas>
+      </div>      
 
     </div>
 
@@ -123,24 +85,72 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
         // ID of the Google Spreadsheet
         var spreadsheetID = "1NHSPAJEYSOqffWPy_pAnVVwsftfk1nisJ9OMWl0d0rQ";
-
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
 
+        function hexToRgbA(hex){
+          var c;
+          if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+              c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+          }
+          throw new Error('Bad Hex');
+        };
+        var default_colors = ['#3366CC','#DC3912','#FF9900','#109618','#990099','#3B3EAC','#0099C6','#DD4477','#66AA00','#B82E2E','#316395','#994499','#22AA99','#AAAA11','#6633CC','#E67300','#8B0707','#329262'];
+        datasets = [];
+        iter = 0;
+
         $.getJSON(url, function(data) {
-
           var entry = data.feed.entry;
-
           $(entry).each(function(){
-          // Column names are name, age, etc.
-          $('#apertura').append('<tr></td><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
+            elem = {label: '', fill: false, lineTension: 0.1, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), spanGaps: false};
+            elem.label = this.gsx$eq3.$t;
+            elem.data.push(this.gsx$f1.$t);
+            elem.data.push(this.gsx$f2.$t);
+            elem.data.push(this.gsx$f3.$t);
+            elem.data.push(this.gsx$f4.$t);
+            elem.data.push(this.gsx$f5.$t);
+            elem.data.push(this.gsx$f6.$t);
+            elem.data.push(this.gsx$f7.$t);
+            datasets.push(elem);
+            iter++;
+          });
+          var ctx = document.getElementById("chartAp");
 
-          $('#descenso').append('<tr></td><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          var data = {
+              labels: ["Fecha 1", "Fecha 2", "Fecha 3", "Fecha 4", "Fecha 5", "Fecha 6", "Fecha 7"],
+              datasets: datasets,
+          };
+          var options = {
+              scales: {
+                  xAxes: [{
+                      position: 'top',
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          reverse: true,
+                      },
+                      display: true,
+                  }]
+              }
+          };
+          var myChart = new Chart(ctx, {
+              type: 'line',
+              data: data,
+              options: options,
           });
         });
+
     </script>
+
   </body>
 </html>
