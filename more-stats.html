@@ -122,13 +122,14 @@
             elem.data.push(this.gsx$f5.$t);
             elem.data.push(this.gsx$f6.$t);
             elem.data.push(this.gsx$f7.$t);
+            elem.data.push(this.gsx$f8.$t);
             datasets.push(elem);
             iter++;
           });
           var ctx = document.getElementById("chartAp");
 
           var data = {
-              labels: ["Fecha 1", "Fecha 2", "Fecha 3", "Fecha 4", "Fecha 5", "Fecha 6", "Fecha 7"],
+              labels: ["Fecha 1", "Fecha 2", "Fecha 3", "Fecha 4", "Fecha 5", "Fecha 6", "Fecha 7", "Fecha 8"],
               datasets: datasets,
           };
           var options = {
@@ -139,7 +140,7 @@
                   }],
                   yAxes: [{
                       ticks: {
-                          beginAtZero: true,
+                          min: 1,
                           reverse: true,
                       },
                       display: true,
