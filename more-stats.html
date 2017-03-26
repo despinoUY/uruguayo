@@ -53,6 +53,7 @@
 
     <div class="container">
 
+      <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -69,6 +70,8 @@
               <li><a href="index.html">Inicio</a></li>
               <li class="active"><a href="more-stats.html">Más estadísticas</a></li>
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
+            </ul>
+            <ul class="nav navbar-right">
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -111,7 +114,7 @@
         $.getJSON(url, function(data) {
           var entry = data.feed.entry;
           $(entry).each(function(){
-            elem = {label: '', fill: false, lineTension: 0.1, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), spanGaps: false};
+            elem = {label: '', fill: false, lineTension: 0.1, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), borderWidth: 1, pointBorderWidth: 2, pointRadius: 2, spanGaps: false};
             elem.label = this.gsx$eq3.$t;
             elem.data.push(this.gsx$f1.$t);
             elem.data.push(this.gsx$f2.$t);
@@ -150,7 +153,6 @@
               options: options,
           });
         });
-
     </script>
 
   </body>
