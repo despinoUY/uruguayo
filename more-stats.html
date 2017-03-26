@@ -76,7 +76,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">Gráfico de evolución de posiciones del Torneo Apertura</div>
-        <canvas id="chartAp" width="100%"></canvas>
+        <canvas id="chartAp" width="100%" height="150px"></canvas>
       </div>      
 
     </div>
@@ -130,6 +130,7 @@
               datasets: datasets,
           };
           var options = {
+              responsive: true,
               scales: {
                   xAxes: [{
                       position: 'top',
