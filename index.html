@@ -79,7 +79,7 @@
 
       <div class="col-lg-6" style="padding: 0">
       <div class="panel panel-default">
-        <div class="panel-heading">Torneo Apertura</div>
+        <div class="panel-heading" id="ap-header">Torneo Apertura - Última actualización: </div>
         <table class="table">
           <thead>
             <tr>
@@ -100,7 +100,7 @@
 
       <div class="col-lg-6" style="padding: 0">
       <div class="panel panel-default">
-        <div class="panel-heading">Tabla del Descenso</div>
+        <div class="panel-heading" id="desc-header">Tabla del Descenso - Última actualización: </div>
         <table class="table">
           <thead>
             <tr>
@@ -135,6 +135,10 @@
         $.getJSON(url, function(data) {
 
           var entry = data.feed.entry;
+          var date = entry[0].updated.$t.split("-");
+          var day = date[2].split("T");
+          document.getElementById('ap-header').innerHTML = document.getElementById('ap-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
+          document.getElementById('desc-header').innerHTML = document.getElementById('desc-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
 
           $(entry).each(function(){
           // Column names are name, age, etc.
