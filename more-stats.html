@@ -76,7 +76,7 @@
         </div><!--/.container-fluid -->
       </nav>
 
-      <div class="panel panel-default">
+      <div class="panel panel-default" id="chartParent">
         <div class="panel-heading">Gráfico de evolución de posiciones del Torneo Apertura</div>
         <canvas id="chartAp" width="100%" height="150px"></canvas>
       </div>      
@@ -134,6 +134,11 @@
           };
           var options = {
               responsive: true,
+              legend: {
+                  labels: {
+                      usePointStyle: true,
+                  },
+              },
               scales: {
                   xAxes: [{
                       position: 'top',
@@ -147,6 +152,14 @@
                   }]
               }
           };
+
+          var currentWindowHeight = $(window).height();
+          var canvas = document.getElementById("chartAp");
+          var chartHeight = currentWindowHeight - 135;
+          var lineChartParent = document.getElementById('chartParent');
+          canvas.width = lineChartParent.clientWidth;
+          canvas.height = chartHeight;
+
           var myChart = new Chart(ctx, {
               type: 'line',
               data: data,
