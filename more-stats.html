@@ -113,7 +113,7 @@
         $.getJSON(url, function(data) {
           var entry = data.feed.entry;
           $(entry).each(function(){
-            elem = {label: '', fill: false, lineTension: 0.1, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), borderWidth: 1, pointBorderWidth: 2, pointRadius: 2, spanGaps: false};
+            elem = {label: '', fill: false, lineTension: 0, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), borderWidth: 1, pointBorderWidth: 2, pointRadius: 2, spanGaps: false};
             elem.label = this.gsx$eq3.$t;
             elem.data.push(this.gsx$f1.$t);
             elem.data.push(this.gsx$f2.$t);

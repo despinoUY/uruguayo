@@ -88,7 +88,8 @@
               <th >PG</th>
               <th >PE</th>
               <th >PP</th>
-              <th >Puntos</th>
+              <th >DG</th>
+              <th >Pts.</th>
             </tr>
           </thead>
           <tbody id="apertura">
@@ -105,9 +106,9 @@
             <tr>
               <th >Equipo</th>
               <th >PJ</th>
-              <th >2016</th>
-              <th >2017</th>
-              <th >Total</th>
+              <th >'16</th>
+              <th >'17</th>
+              <th >Pts.</th>
               <th >Avg.</th>
             </tr>
           </thead>
@@ -137,9 +138,14 @@
 
           $(entry).each(function(){
           // Column names are name, age, etc.
-          $('#apertura').append('<tr></td><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
+          $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
 
-          $('#descenso').append('<tr></td><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
+              $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          } else {
+              $('#descenso').append('<tr></td><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          }
+
           });
         });
     </script>
