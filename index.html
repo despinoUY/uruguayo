@@ -143,17 +143,25 @@
           var day = date[2].split("T");
           document.getElementById('ap-header').innerHTML = document.getElementById('ap-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
           document.getElementById('desc-header').innerHTML = document.getElementById('desc-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
+          var iter = 0;
 
           $(entry).each(function(){
-          // Column names are name, age, etc.
-          $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
-
-          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
-              $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          console.log((iter == 0) || (Math.floor(iter/2) == 0));
+          if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+            $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
           } else {
-              $('#descenso').append('<tr></td><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
           }
-
+          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+          } else {
+            if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+                $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+            } else {
+                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+            }
+          }
+          iter++;
           });
         });
     </script>

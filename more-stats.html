@@ -107,8 +107,8 @@
           throw new Error('Bad Hex');
         };
         var default_colors = ['#3366CC','#DC3912','#FF9900','#109618','#990099','#3B3EAC','#0099C6','#DD4477','#66AA00','#B82E2E','#316395','#994499','#22AA99','#AAAA11','#6633CC','#E67300','#8B0707','#329262'];
-        datasets = [];
-        iter = 0;
+        var datasets = [];
+        var iter = 0;
 
         $.getJSON(url, function(data) {
           var entry = data.feed.entry;
@@ -126,6 +126,11 @@
             datasets.push(elem);
             iter++;
           });
+        });
+
+        console.log(datasets);
+
+        function generateGraph(datasets) {
           var ctx = document.getElementById("chartAp");
 
           var data = {
@@ -167,7 +172,7 @@
               data: data,
               options: options,
           });
-        });
+        };
     </script>
 
   </body>
