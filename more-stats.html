@@ -78,6 +78,16 @@
 
       <div class="panel panel-default" id="chartParent">
         <div class="panel-heading">Gráfico de evolución de posiciones del Torneo Apertura</div>
+<!--
+        <div class="dropdown" style="margin-top: 15px; margin-left: 15px;">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Seleccione un equipo...
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" id="team-selector" aria-labelledby="dropdownMenu1">
+          </ul>
+        </div>
+-->
         <canvas id="chartAp" width="100%" height="150px"></canvas>
       </div>      
 
@@ -106,31 +116,12 @@
           }
           throw new Error('Bad Hex');
         };
-        var default_colors = ['#3366CC','#DC3912','#FF9900','#109618','#990099','#3B3EAC','#0099C6','#DD4477','#66AA00','#B82E2E','#316395','#994499','#22AA99','#AAAA11','#6633CC','#E67300','#8B0707','#329262'];
-        var datasets = [];
-        var iter = 0;
-
-        $.getJSON(url, function(data) {
-          var entry = data.feed.entry;
-          $(entry).each(function(){
-            elem = {label: '', fill: false, lineTension: 0, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), borderWidth: 1, pointBorderWidth: 2, pointRadius: 2, spanGaps: false};
-            elem.label = this.gsx$eq3.$t;
-            elem.data.push(this.gsx$f1.$t);
-            elem.data.push(this.gsx$f2.$t);
-            elem.data.push(this.gsx$f3.$t);
-            elem.data.push(this.gsx$f4.$t);
-            elem.data.push(this.gsx$f5.$t);
-            elem.data.push(this.gsx$f6.$t);
-            elem.data.push(this.gsx$f7.$t);
-            elem.data.push(this.gsx$f8.$t);
-            datasets.push(elem);
-            iter++;
-          });
-        });
-
-        console.log(datasets);
+        default_colors = ['#3366CC','#DC3912','#FF9900','#109618','#990099','#3B3EAC','#0099C6','#DD4477','#66AA00','#B82E2E','#316395','#994499','#22AA99','#AAAA11','#6633CC','#E67300','#8B0707','#329262'];
+        datasets = [];
+        iter = 0;
 
         function generateGraph(datasets) {
+          console.log(datasets);
           var ctx = document.getElementById("chartAp");
 
           var data = {
@@ -173,6 +164,29 @@
               options: options,
           });
         };
+
+        $.getJSON(url, function(data) {
+          var entry = data.feed.entry;
+          $(entry).each(function(){
+            elem = {label: '', fill: false, lineTension: 0, data: [], backgroundColor: hexToRgbA(default_colors[iter]), borderColor: hexToRgbA(default_colors[iter]), borderWidth: 1, pointBorderWidth: 2, pointRadius: 2, spanGaps: false};
+            elem.label = this.gsx$eq3.$t;
+            elem.data.push(this.gsx$f1.$t);
+            elem.data.push(this.gsx$f2.$t);
+            elem.data.push(this.gsx$f3.$t);
+            elem.data.push(this.gsx$f4.$t);
+            elem.data.push(this.gsx$f5.$t);
+            elem.data.push(this.gsx$f6.$t);
+            elem.data.push(this.gsx$f7.$t);
+            elem.data.push(this.gsx$f8.$t);
+            $('#team-selector').append('<li><a href="#" id="teams" team-id="'+iter+'">'+this.gsx$eq3.$t+'</a></li>');
+            datasets.push(elem);
+            iter++;
+          });
+          generateGraph(datasets);
+        });
+    </script>
+
+    <script>
     </script>
 
   </body>
