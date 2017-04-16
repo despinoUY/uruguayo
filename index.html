@@ -177,13 +177,13 @@
         function clicketyClick(name){
           var divWidth = document.getElementById(name).outerWidth;
           var divHeight = document.getElementById(name).outerHeight;
-          console.log(name);
           html2canvas(document.getElementById(name), {
             onrendered: function(canvas){
               document.body.appendChild(canvas);
               canvas.style.display = 'none';
-              canvas.id = "ctx";
-              var ctx = document.getElementById('ctx');
+              canvas.id = name+'-ctx';
+              console.log(canvas.id);
+              var ctx = document.getElementById(name+'-ctx');
               var img = ctx.toDataURL("image/png");
               window.open(img);
               //document.getElementById('tablaApertura').appendChild(canvas);
