@@ -16,14 +16,16 @@
 
     <!-- Begin Bootstrap -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- End Bootstrap -->
+
+    <script src="js/html2canvas.js"></script>
 
     <!-- Begin Oswald font -->
      <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
@@ -82,9 +84,13 @@
       -->
 
       <div class="col-lg-6" style="padding: 0">
-      <div class="panel panel-default">
-        <div class="panel-heading" id="ap-header">Torneo Apertura - Última actualización: </div>
-        <table class="table" style="font-family: Oswald">
+<!--
+      <button type="button" class="btn" style="margin-bottom: 5px;" onclick="ButtonClick1()">Descargá esta tabla!</button>
+-->
+<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaApertura')">Descargá esta tabla!</button>
+      <div id="tablaApertura" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="ap-header" style="font-size:18px">Torneo Apertura - Última actualización: </div>
+        <table class="table">
           <thead>
             <tr>
               <th >Equipo</th>
@@ -103,8 +109,9 @@
       </div>
 
       <div class="col-lg-6" style="padding: 0">
-      <div class="panel panel-default">
-        <div class="panel-heading" id="desc-header">Tabla del Descenso - Última actualización: </div>
+<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+      <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
+        <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso - Última actualización: </div>
         <table class="table" style="font-family: Oswald">
           <thead>
             <tr>
@@ -121,6 +128,8 @@
         </table>
       </div>
       </div>
+
+    <div id="hiddenField"><div id="divHidden"></div></div>
 
     </div>
 
@@ -164,6 +173,26 @@
           iter++;
           });
         });
+
+        function clicketyClick(name){
+          var divWidth = document.getElementById(name).outerWidth;
+          var divHeight = document.getElementById(name).outerHeight;
+          console.log(name);
+          html2canvas(document.getElementById(name), {
+            onrendered: function(canvas){
+              document.body.appendChild(canvas);
+              canvas.style.display = 'none';
+              canvas.id = "ctx";
+              var ctx = document.getElementById('ctx');
+              var img = ctx.toDataURL("image/png");
+              window.open(img);
+              //document.getElementById('tablaApertura').appendChild(canvas);
+            },
+            width: divWidth,
+            height: divHeight,
+          });
+        };
     </script>
+
   </body>
 </html>
