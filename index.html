@@ -69,7 +69,9 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Inicio</a></li>
+<!--
               <li><a href="more-stats.html">Más estadísticas</a></li>
+-->
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -106,6 +108,7 @@
           </tbody>
         </table>
       </div>
+      <a id='tablaApertura-a-ctx' style='display: none;'></a>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
@@ -127,6 +130,7 @@
           </tbody>
         </table>
       </div>
+      <a id='tablaDescenso-a-ctx' style='display: none;'></a>
       </div>
 
     <div id="hiddenField"><div id="divHidden"></div></div>
@@ -155,7 +159,6 @@
           var iter = 0;
 
           $(entry).each(function(){
-          console.log((iter == 0) || (Math.floor(iter/2) == 0));
           if ((iter == 0) || (Math.floor(iter%2) == 0)) {
             $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
           } else {
@@ -177,15 +180,17 @@
         function clicketyClick(name){
           var divWidth = document.getElementById(name).outerWidth;
           var divHeight = document.getElementById(name).outerHeight;
+          var anchor = document.getElementById(name+'-a-ctx');
           html2canvas(document.getElementById(name), {
             onrendered: function(canvas){
               document.body.appendChild(canvas);
               canvas.style.display = 'none';
               canvas.id = name+'-ctx';
-              console.log(canvas.id);
               var ctx = document.getElementById(name+'-ctx');
               var img = ctx.toDataURL("image/png");
-              window.open(img);
+              anchor.href = ctx.toDataURL("image/png");
+              anchor.download = name+'.png';
+              anchor.click();
               //document.getElementById('tablaApertura').appendChild(canvas);
             },
             width: divWidth,
