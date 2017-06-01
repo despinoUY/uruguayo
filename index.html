@@ -196,11 +196,11 @@
           <thead>
             <tr>
               <th style="width: 30%">Equipo</th>
-              <th style="width: 17.5%">PJ</th>
-              <th style="width: 17.5%">'16</th>
-              <th style="width: 17.5%">'17</th>
-              <th style="width: 17.5%">Pts.</th>
-              <th >Avg.</th>
+              <th style="width: 14%">PJ</th>
+              <th style="width: 14%">'16</th>
+              <th style="width: 14%">'17</th>
+              <th style="width: 14%">Pts.</th>
+              <th style="width: 14%">Avg.</th>
             </tr>
           </thead>
           <tbody id="descenso">
@@ -232,26 +232,26 @@
 
           $(entry).each(function(){
           if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter<=7)) {
-            $('#serie-a').append('</td><tr><td>'+this.gsx$equipoa.$t+'</td><td>'+this.gsx$pja.$t+'<td>'+this.gsx$pga.$t+'</td><td>'+this.gsx$pea.$t+'</td><td>'+this.gsx$ppa.$t+'</td><td>'+this.gsx$gfa.$t+'</td><td>'+this.gsx$gca.$t+'</td><td>'+this.gsx$dga.$t+'</td><td>'+this.gsx$ptsa.$t+'</td></tr>');
-            $('#serie-b').append('</td><tr><td>'+this.gsx$equipob.$t+'</td><td>'+this.gsx$pjb.$t+'<td>'+this.gsx$pgb.$t+'</td><td>'+this.gsx$peb.$t+'</td><td>'+this.gsx$ppb.$t+'</td><td>'+this.gsx$gfb.$t+'</td><td>'+this.gsx$gcb.$t+'</td><td>'+this.gsx$dgb.$t+'</td><td>'+this.gsx$ptsb.$t+'</td></tr>');
+            $('#serie-a').append('</td><tr><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            $('#serie-b').append('</td><tr><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
           } else if (iter <=7) {
-            $('#serie-a').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoa.$t+'</td><td>'+this.gsx$pja.$t+'<td>'+this.gsx$pga.$t+'</td><td>'+this.gsx$pea.$t+'</td><td>'+this.gsx$ppa.$t+'</td><td>'+this.gsx$gfa.$t+'</td><td>'+this.gsx$gca.$t+'</td><td>'+this.gsx$dga.$t+'</td><td>'+this.gsx$ptsa.$t+'</td></tr>');
-            $('#serie-b').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipob.$t+'</td><td>'+this.gsx$pjb.$t+'<td>'+this.gsx$pgb.$t+'</td><td>'+this.gsx$peb.$t+'</td><td>'+this.gsx$ppb.$t+'</td><td>'+this.gsx$gfb.$t+'</td><td>'+this.gsx$gcb.$t+'</td><td>'+this.gsx$dgb.$t+'</td><td>'+this.gsx$ptsb.$t+'</td></tr>');
+            $('#serie-a').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            $('#serie-b').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
           }
           if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
-            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             if ((this.title.$t == "Row: 15") || (this.title.$t == "Row: 17")) {
-                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td>'+this.gsx$pjan.$t+'<td>'+this.gsx$pgan.$t+'</td><td>'+this.gsx$pean.$t+'</td><td>'+this.gsx$ppan.$t+'</td><td>'+this.gsx$gfan.$t+'</td><td>'+this.gsx$gcan.$t+'</td><td>'+this.gsx$dgan.$t+'</td><td>'+this.gsx$ptsan.$t+'</td></tr>');
+                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
             } else {
-                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td>'+this.gsx$pjan.$t+'<td>'+this.gsx$pgan.$t+'</td><td>'+this.gsx$pean.$t+'</td><td>'+this.gsx$ppan.$t+'</td><td>'+this.gsx$gfan.$t+'</td><td>'+this.gsx$gcan.$t+'</td><td>'+this.gsx$dgan.$t+'</td><td>'+this.gsx$ptsan.$t+'</td></tr>');
+                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
             }
           } else {
             if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td>'+this.gsx$pjan.$t+'<td>'+this.gsx$pgan.$t+'</td><td>'+this.gsx$pean.$t+'</td><td>'+this.gsx$ppan.$t+'</td><td>'+this.gsx$gfan.$t+'</td><td>'+this.gsx$gcan.$t+'</td><td>'+this.gsx$dgan.$t+'</td><td>'+this.gsx$ptsan.$t+'</td></tr>');
-                $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+                $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             } else {
-                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td>'+this.gsx$pjan.$t+'<td>'+this.gsx$pgan.$t+'</td><td>'+this.gsx$pean.$t+'</td><td>'+this.gsx$ppan.$t+'</td><td>'+this.gsx$gfan.$t+'</td><td>'+this.gsx$gcan.$t+'</td><td>'+this.gsx$dgan.$t+'</td><td>'+this.gsx$ptsan.$t+'</td></tr>');
-                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
+                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             }
           }
           iter++;
