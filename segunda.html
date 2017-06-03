@@ -121,6 +121,7 @@
       </div>
       -->
 
+      <div class="col-lg-6" style="padding: 0">
       <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('segundaDiv')">Descargá esta tabla!</button>
       <div id="segundaDiv" class="panel panel-default" style="font-family: Oswald">
         <div class="panel-heading" id="segunda-header" style="font-size:18px">Segunda División</div>
@@ -143,8 +144,32 @@
         </table>
       </div>
       <a id='segundaDiv-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-6" style="padding: 0">
+<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+      <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
+        <div class="panel-heading" id="desc-header" style="font-size:18px">Segunda División - Tabla del Descenso</div>
+        <table class="table" style="font-family: Oswald">
+          <thead>
+            <tr>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 14%">PJ</th>
+              <th style="width: 14%">'15/'16</th>
+              <th style="width: 14%">'17</th>
+              <th style="width: 14%">Pts.</th>
+              <th style="width: 14%">Avg.</th>
+            </tr>
+          </thead>
+          <tbody id="descenso">
+          </tbody>
+        </table>
+      </div>
+      <a id='tablaDescenso-a-ctx' style='display: none;'></a>
+      </div>
 
     <div id="hiddenField"><div id="divHidden"></div></div>
+
 
     </div>
 
@@ -169,6 +194,15 @@
             $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else {
             $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+          }
+          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+          } else {
+            if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+              $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            } else {
+              $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            }
           }
           iter++;
           });
