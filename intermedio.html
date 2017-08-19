@@ -126,9 +126,10 @@
       </div>
       -->
 
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausura')">Descargá esta tabla!</button>
-      <div id="clausura-div" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura</div>
+      <div class="col-lg-6" style="padding: 0">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('intermedioSerieA')">Descargá esta tabla!</button>
+      <div id="intermedioSerieA" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="serieA-header" style="font-size:18px">Torneo Intermedio - Serie A</div>
         <table class="table">
           <thead>
             <tr>
@@ -143,10 +144,36 @@
               <th style="width: 8.75%">Pts.</th>
             </tr>
           </thead>
-          <tbody id="clausura">
+          <tbody id="serie-a">
           </tbody>
         </table>
-      <a id='clausura-ctx' style='display: none;'></a>
+      </div>
+      <a id='intermedioSerieA-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-6" style="padding: 0">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('intermedioSerieB')">Descargá esta tabla!</button>
+      <div id="intermedioSerieB" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="serieB-header" style="font-size:18px">Torneo Intermedio - Serie B</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 8.75%">PJ</th>
+              <th style="width: 8.75%">PG</th>
+              <th style="width: 8.75%">PE</th>
+              <th style="width: 8.75%">PP</th>
+              <th style="width: 8.75%">GF</th>
+              <th style="width: 8.75%">GC</th>
+              <th style="width: 8.75%">DG</th>
+              <th style="width: 8.75%">Pts.</th>
+            </tr>
+          </thead>
+          <tbody id="serie-b">
+          </tbody>
+        </table>
+      </div>
+      <a id='intermedioSerieB-a-ctx' style='display: none;'></a>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
@@ -207,7 +234,7 @@
 
     <script type="text/javascript">
         // ID of the Google Spreadsheet
-        var spreadsheetID = "1uB21pv6RfbiVbQp8bg5XPNJggOVuOWFV1aiBl4yCKVY";
+        var spreadsheetID = "1Ai4DUYg4MuiVKkRlN-lI0TOq7OHIXL_11rYkq2edfqc";
 
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
@@ -217,10 +244,12 @@
           var iter = 0;
 
           $(entry).each(function(){
-          if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-            $('#clausura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else {
-            $('#clausura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+          if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter<=7)) {
+            $('#serie-a').append('</td><tr><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            $('#serie-b').append('</td><tr><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
+          } else if (iter <=7) {
+            $('#serie-a').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            $('#serie-b').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
           }
           if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
             $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
