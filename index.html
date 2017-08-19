@@ -98,14 +98,9 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Torneos <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li class="active"><a href="#">Primera División</a></li>
-                <li><a href="segunda.html">Segunda División</a></li>
-                <li><a href="segundab.html">Segunda B Nacional</a><li>
-              </ul>
-            </li>
+            <li><a href="#">Primera División</a></li>
+            <li><a href="segunda.html">Segunda División</a></li>
+            <li><a href="segundab.html">Segunda B Nacional</a></li>
 <!--
               <li><a href="more-stats.html">Más estadísticas</a></li>
 -->
@@ -126,8 +121,9 @@
       </div>
       -->
 
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausura')">Descargá esta tabla!</button>
-      <div id="clausura-div" class="panel panel-default" style="font-family: Oswald">
+      <div id="clausura-helper">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tClausura')">Descargá esta tabla!</button>
+      <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
         <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura</div>
         <table class="table">
           <thead>
@@ -146,7 +142,8 @@
           <tbody id="clausura">
           </tbody>
         </table>
-      <a id='clausura-ctx' style='display: none;'></a>
+      </div>
+      <a id='tClausura-a-ctx' style='display: none;'></a>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
