@@ -121,10 +121,31 @@
       </div>
       -->
 
-      <div id="clausura-helper">
+      <div class="col-lg-6" style="padding: 0; maxwidth: 100%;">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
+      <div id="fixtureC" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="fixture-header" style="font-size:18px">Torneo Clausura - Fecha </div>
+        <table class="table" style='vertical-align:middle;'>
+          <thead>
+            <tr>
+              <th>Local</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>Visitante</th>
+            </tr>
+          </thead>
+          <tbody id="fixture">
+          </tbody>
+        </table>
+      </div>
+      <a id='fixtureC-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-6" style="padding: 0">
       <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tClausura')">Descargá esta tabla!</button>
       <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura</div>
+        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura - Tabla</div>
         <table class="table">
           <thead>
             <tr>
@@ -216,8 +237,17 @@
           $(entry).each(function(){
           if ((iter == 0) || (Math.floor(iter%2) == 0)) {
             $('#clausura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            if (iter == 0){
+              $('#fixture-header').append(this.gsx$fecha.$t);
+            }
+            if (iter <= 7) {
+              $('#fixture').append('</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
+            }
           } else {
             $('#clausura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            if (iter <= 7) {
+              $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
+            }
           }
           if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
             $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
