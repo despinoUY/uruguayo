@@ -16,16 +16,16 @@
 
     <meta property="og:url"         content="http://www.campeonatouruguayo.uy" />
     <meta property="og:type"        content="article" />
-    <meta property="og:title"       content="Campeonato Uruguayo | Las tablas del Uruguayo" />
+    <meta property="og:title"       content="Campeonato Uruguayo | Las tablas del deporte uruguayo" />
     <meta property="og:description" content="¿Cansado de buscar las tablas del Campeonato Uruguayo (sobre todo la del descenso)? ¡Acá están!" />
     <meta property="og:image"       content="http://www.campeonatouruguayo.uy/imgs/auf.jpg" />
 
-    <meta name="keywords" content="Fútbol,Uruguayo,Uruguay,Tenfield,Campeonato,Soccer,Football,Uruguayan,Results">
+    <meta name="keywords" content="Fútbol,Uruguayo,Uruguay,Tenfield,Campeonato,Soccer,Football,Uruguayan,Results,Peñarol,Nacional,Defensor Sporting,Danubio,Basquet,Básquetbol,Liga Uruguaya de Básquetbol,Aguada,Goes,Malvín,Hebraica Macabi">
     <meta name="author" content="http://www.twitter.com/despinoUY">
     <meta name="language" content="es">
-    <meta name="description" content="Sitio que centraliza las tablas de los campeonatos de todas las divisionales profesionales de la Asociación Uruguaya de Fútbol.">
+    <meta name="description" content="Sitio que centraliza las tablas de los campeonatos de todas las divisionales profesionales de la Asociación Uruguaya de Fútbol y otros deportes.">
 
-    <title>Campeonato Uruguayo | Las tablas del Fútbol Uruguayo</title>
+    <title>Campeonato Uruguayo | Las tablas del deporte uruguayo</title>
 
     <!-- Begin Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -98,9 +98,11 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <li><a href="#">Primera División</a></li>
+            <li><a href="index.html">Primera División</a></li>
             <li><a href="segunda.html">Segunda División</a></li>
             <li><a href="segundab.html">Segunda B Nacional</a></li>
+            <li><a href="#">Básquetbol</a></li>
+
 <!--
               <li><a href="more-stats.html">Más estadísticas</a></li>
 -->
@@ -184,19 +186,25 @@
 
           $(entry).each(function(){
           if (iter == 6) {
-            $('#fixture').append('<tr><td align="center" colspan="5">Fecha libre:<i>'+this.gsx$local.$t+'</i></td></tr>');
+            $('#fixture').append('<tr><td align="center" colspan="5"><i>Fecha libre: '+this.gsx$local.$t+'</i></td></tr>');
           } else if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter != 7)) {
             $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
             if (iter == 0){
               $('#fixture-header').append(this.gsx$fecha.$t);
             }
             if (iter <= 7) {
-              $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><a href="'+this.gsx$specs.$t+'">Estadísticas en vivo</a></td></tr>');
+              $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              if (this.gsx$link.$t != '') {
+                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              }
             }
           } else if (iter != 7) {
             $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
             if (iter <= 7) {
-              $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><a href="'+this.gsx$specs.$t+'">Estadísticas en vivo</a></td></tr>');
+              $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              if (this.gsx$link.$t != '') {
+                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              }
             }
           }
           iter++;
