@@ -123,8 +123,10 @@
       </div>
       -->
 
+      <div class="col-lg-6" style="padding: 0; maxwidth: 100%;">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureA')">Descargá el fixture de la fecha!</button>
       <div id="fixtureA" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="fixture-header" style="font-size:18px">El Metro - Quinto partido por el ascenso a la Liga Uruguaya</div>
+        <div class="panel-heading" id="fixture-header" style="font-size:18px">Torneo Apertura - Fecha </div>
         <table class="table" style='vertical-align:middle;'>
           <thead>
             <tr>
@@ -136,20 +138,35 @@
             </tr>
           </thead>
           <tbody id="fixture">
-            <tr>
-              <td style="font-size: 24px; text-align: center;">Cordón</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">-</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">Verdirrojo</td>
-            </tr>
-            <tr>
-              <td align="center" colspan="5"><i>22/9 - 20:15 (TV) - Tabaré</i></br><a href="">Estadísticas en vivo</a></td>
-            </tr>          
           </tbody>
         </table>
+      </div>
+      <a id='fixtureA-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-6" style="padding: 0">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tApertura')">Descargá esta tabla!</button>
+      <div id="tApertura" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Apertura - Tabla</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 17.5%">PG</th>
+              <th style="width: 17.5%">PP</th>
+              <th style="width: 17.5%">Pts.</th>
+            </tr>
+          </thead>
+          <tbody id="apertura">
+          </tbody>
+        </table>
+      </div>
+      <a id='tApertura-a-ctx' style='display: none;'></a>
+      </div>
 
     <div id="hiddenField"><div id="divHidden"></div></div>
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -157,6 +174,46 @@
     <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
+        // ID of the Google Spreadsheet
+        var spreadsheetID = "1siMUdYXmlg0oXJ9PrqsM4i8LiB83Ng3MJ3TxK6Ja2NY";
+
+        // Make sure it is public or set to Anyone with link can view 
+        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+        $.getJSON(url, function(data) {
+          var entry = data.feed.entry;
+          var iter = 0;
+
+          $(entry).each(function(){
+          if (iter == 6) {
+            $('#fixture').append('<tr><td align="center" colspan="5"><i>Fecha libre: '+this.gsx$local.$t+'</i></td></tr>');
+            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+          } else if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter != 7)) {
+            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            if (iter == 0){
+              $('#fixture-header').append(this.gsx$fecha.$t);
+            }
+            if (iter <= 7) {
+              $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              if (this.gsx$link.$t != '') {
+                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              }
+            }
+          } else if (iter != 7) {
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            if (iter <= 7) {
+              $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              if (this.gsx$link.$t != '') {
+                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              }
+            }
+          } else {
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+          }
+          iter++;
+          });
+        });
+
         function clicketyClick(name){
           var divWidth = document.getElementById(name).outerWidth;
           var divHeight = document.getElementById(name).outerHeight;
