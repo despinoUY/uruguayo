@@ -187,6 +187,7 @@
           $(entry).each(function(){
           if (iter == 6) {
             $('#fixture').append('<tr><td align="center" colspan="5"><i>Fecha libre: '+this.gsx$local.$t+'</i></td></tr>');
+            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
           } else if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter != 7)) {
             $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
             if (iter == 0){
@@ -206,6 +207,8 @@
                 $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
               }
             }
+          } else {
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
           }
           iter++;
           });
