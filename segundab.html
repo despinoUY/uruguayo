@@ -123,9 +123,10 @@
       </div>
       -->
 
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('segundaB')">Descargá esta tabla!</button>
-      <div id="segundaB" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="segunda-am-header" style="font-size:18px">Segunda B Nacional</div>
+      <div class="col-lg-6" style="padding: 0">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausuraSerieA')">Descargá esta tabla!</button>
+      <div id="clausuraSerieA" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="serieA-header" style="font-size:18px">Segunda B Nacional - Torneo Clausura - Serie A</div>
         <table class="table">
           <thead>
             <tr>
@@ -140,14 +141,41 @@
               <th style="width: 8.75%">Pts.</th>
             </tr>
           </thead>
-          <tbody id="segunda-am">
+          <tbody id="serie-a">
           </tbody>
         </table>
       </div>
-      <a id='segundaB-a-ctx' style='display: none;'></a>
-      <p>En <mark style="background-color:#32CD32;">verde</mark> se marca el único ascenso a Segunda División para el año 2018.</p>
+      <a id='clausuraSerieA-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-6" style="padding: 0">
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausuraSerieB')">Descargá esta tabla!</button>
+      <div id="clausuraSerieB" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="serieB-header" style="font-size:18px">Segunda B Nacional - Torneo Clausura - Serie B</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 8.75%">PJ</th>
+              <th style="width: 8.75%">PG</th>
+              <th style="width: 8.75%">PE</th>
+              <th style="width: 8.75%">PP</th>
+              <th style="width: 8.75%">GF</th>
+              <th style="width: 8.75%">GC</th>
+              <th style="width: 8.75%">DG</th>
+              <th style="width: 8.75%">Pts.</th>
+            </tr>
+          </thead>
+          <tbody id="serie-b">
+          </tbody>
+        </table>
+      </div>
+      <a id='clausuraSerieB-a-ctx' style='display: none;'></a>
+      </div>
 
     <div id="hiddenField"><div id="divHidden"></div></div>
+
+    <p>En <mark style="background-color:#32CD32;">verde</mark> se marca al campeón del Torneo Apertura, clasificado a la final por el ascenso a Segunda División Profiesional.</p>
 
     </div>
 
@@ -158,7 +186,7 @@
 
     <script type="text/javascript">
         // ID of the Google Spreadsheet
-        var spreadsheetID = "1_0RWUcr7c2c4vQBw5e86EGg13G9GJfojceoRFi2PxTk";
+        var spreadsheetID = "1lIghu_PjFtRvY6OmpyGTrgmhW1LITfhWrsaBOu-yUu4";
 
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
@@ -168,12 +196,22 @@
           var iter = 0;
 
           $(entry).each(function(){
-          if (iter == 0) {
-            $('#segunda-am').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else if (Math.floor(iter%2) == 0) {
-            $('#segunda-am').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else {
-            $('#segunda-am').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+          if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter<=7)) {
+            if (this.gsx$equipoa.$t == 'Albion') {
+              $('#serie-a').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            } else {
+              $('#serie-a').append('</td><tr><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            }
+            $('#serie-b').append('</td><tr><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
+          } else if (iter <=7) {
+            if (this.gsx$equipoa.$t == 'Albion') {
+              $('#serie-a').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            } else {
+              $('#serie-a').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
+            }
+            if (iter < 7) {
+              $('#serie-b').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
+            }
           }
           iter++;
           });
