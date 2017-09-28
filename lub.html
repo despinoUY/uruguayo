@@ -194,17 +194,19 @@
               $('#fixture-header').append(this.gsx$fecha.$t);
             }
             if (iter <= 7) {
-              $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
-              if (this.gsx$link.$t != '') {
-                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              if (this.gsx$link.$t == '') {
+                $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              } else {
+                $('#fixture').append('</td><tr><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
               }
             }
           } else if (iter != 7) {
             $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
             if (iter <= 7) {
-              $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
-              if (this.gsx$link.$t != '') {
-                $('#fixture').append('</br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
+              if (this.gsx$link.$t == '') {
+                $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
+              } else {
+                $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></br><a href="'+this.gsx$link.$t+'">Estadísticas en vivo</a></td></tr>');
               }
             }
           } else {
