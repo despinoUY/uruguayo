@@ -98,14 +98,10 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <li><a href="#">Primera División</a></li>
-            <li><a href="segunda.html">Segunda División</a></li>
-            <li><a href="segundab.html">Segunda B Nacional</a></li>
-            <li><a href="lub.html">Básquetbol</a></li>
-
-<!--
-              <li><a href="more-stats.html">Más estadísticas</a></li>
--->
+              <li><a href="#">Primera División</a></li>
+              <li><a href="segunda.html">Segunda División</a></li>
+              <li><a href="segundab.html">Segunda B Nacional</a></li>
+              <li><a href="lub.html">Básquetbol</a></li>
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -116,107 +112,126 @@
         </div><!--/.container-fluid -->
       </nav>
 
-      <!--
-      <div class="page-header">
-        <h1>Las tablas del Uruguayo</h1>
-        <p class="lead">¿Cansado de no encontrar las tablas del fútbol uruguayo? Acá las tenés.</p>
-      </div>
-      -->
-
       <div class="col-lg-6" style="padding: 0; maxwidth: 100%;">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
-      <div id="fixtureC" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="fixture-header" style="font-size:18px">Torneo Clausura - Fecha </div>
-        <table class="table" style='vertical-align:middle;'>
-          <thead>
-            <tr>
-              <th style="width: 35%">Local</th>
-              <th style="width: 10%"></th>
-              <th style="width: 10%"></th>
-              <th style="width: 10%"></th>
-              <th style="width: 35%">Visitante</th>
-            </tr>
-          </thead>
-          <tbody id="fixture">
-          </tbody>
-        </table>
-      </div>
-      <a id='fixtureC-a-ctx' style='display: none;'></a>
-      </div>
-
-      <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tClausura')">Descargá esta tabla!</button>
-      <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura - Tabla</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 8.75%">PJ</th>
-              <th style="width: 8.75%">PG</th>
-              <th style="width: 8.75%">PE</th>
-              <th style="width: 8.75%">PP</th>
-              <th style="width: 8.75%">GF</th>
-              <th style="width: 8.75%">GC</th>
-              <th style="width: 8.75%">DG</th>
-              <th style="width: 8.75%">Pts.</th>
-            </tr>
-          </thead>
-          <tbody id="clausura">
-          </tbody>
-        </table>
-      </div>
-      <a id='tClausura-a-ctx' style='display: none;'></a>
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
+        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="fixture-header" style="font-size:18px">Torneo Clausura - Fecha </div>
+          <table class="table" style='vertical-align:middle;'>
+            <thead>
+              <tr>
+                <th style="width: 35%">Local</th>
+                <th style="width: 10%"></th>
+                <th style="width: 10%"></th>
+                <th style="width: 10%"></th>
+                <th style="width: 35%">Visitante</th>
+              </tr>
+            </thead>
+            <tbody id="fixture">
+            </tbody>
+          </table>
+        </div>
+        <a id='fixtureC-a-ctx' style='display: none;'></a>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaAnual')">Descargá esta tabla!</button>
-      <div id="tablaAnual" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="anual-header" style="font-size:18px">Tabla Anual</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 8.75%">PJ</th>
-              <th style="width: 8.75%">PG</th>
-              <th style="width: 8.75%">PE</th>
-              <th style="width: 8.75%">PP</th>
-              <th style="width: 8.75%">GF</th>
-              <th style="width: 8.75%">GC</th>
-              <th style="width: 8.75%">DG</th>
-              <th style="width: 8.75%">Pts.</th>
-            </tr>
-          </thead>
-          <tbody id="anual">
-          </tbody>
-        </table>
-      </div>
-      <a id='tablaAnual-a-ctx' style='display: none;'></a>
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tClausura')">Descargá esta tabla!</button>
+        <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura - Tabla</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="clausura">
+            </tbody>
+          </table>
+        </div>
+        <a id='tClausura-a-ctx' style='display: none;'></a>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
-<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
-      <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
-        <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso</div>
-        <table class="table" style="font-family: Oswald">
-          <thead>
-            <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 14%">PJ</th>
-              <th style="width: 14%">'16</th>
-              <th style="width: 14%">'17</th>
-              <th style="width: 14%">Pts.</th>
-              <th style="width: 14%">Avg.</th>
-            </tr>
-          </thead>
-          <tbody id="descenso">
-          </tbody>
-        </table>
-      </div>
-      <a id='tablaDescenso-a-ctx' style='display: none;'></a>
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaAnual')">Descargá esta tabla!</button>
+        <div id="tablaAnual" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="anual-header" style="font-size:18px">Tabla Anual</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="anual">
+            </tbody>
+          </table>
+        </div>
+        <a id='tablaAnual-a-ctx' style='display: none;'></a>
       </div>
 
-    <div id="hiddenField"><div id="divHidden"></div></div>
+      <div class="col-lg-6" style="padding: 0">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+        <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
+          <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso</div>
+          <table class="table" style="font-family: Oswald">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 14%">PJ</th>
+                <th style="width: 14%">'16</th>
+                <th style="width: 14%">'17</th>
+                <th style="width: 14%">Pts.</th>
+                <th style="width: 14%">Avg.</th>
+              </tr>
+            </thead>
+            <tbody id="descenso">
+            </tbody>
+          </table>
+        </div>
+        <a id='tablaDescenso-a-ctx' style='display: none;'></a>
+      </div>
+
+      <div class="col-lg-12" style="padding: 0">
+        <div class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="desc-header" style="font-size:18px">Clasificación a copas internacionales</div>
+          <div class="panel-body">
+            <ul>
+              <li>¿Quién clasifica a la Copa Libertadores?</li>
+              El campeón uruguayo (como Uruguay 1), el vicecampeón uruguayo (como Uruguay 2) y el siguiente club mejor ubicado en la Tabla Anual (como Uruguay 3).
+              <li>¿Quién clasifica a la Copa Sudamericana?</li>
+              El campeón del Torneo Intermedio (Nacional, salvo haya clasificado a la Libertadores, como Uruguay 4) y el resto de los clubes mejor ubicados en la Tabla Anual que no hubieran clasificado a la Copa Libertadores (como Uruguay 1, 2 y 3).
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12" style="padding: 0">
+        <div class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="desc-header" style="font-size:18px">Descenso a Segunda División</div>
+          <div class="panel-body">
+            <ul>
+              <li>¿Quién baja a Segunda División?</li>
+              Los tres equipos peor ubicados en la Tabla del Descenso. En caso de empate en promedios, los dos equipos con mejores promedios disputarán dos partidos finales que se definirán por puntos. En caso de mantenerse el empate luego de estos dos partidos, se jugaría un tercer partido final. Si se mantiene el empate luego de los 90 minutos, se disputará una prórroga de 30 minutos y, en caso de ser necesario, se patearán penales.
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="hiddenField"><div id="divHidden"></div></div>
 
     </div>
 
