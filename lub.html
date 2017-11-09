@@ -152,9 +152,14 @@
           <thead>
             <tr>
               <th style="width: 30%">Equipo</th>
-              <th style="width: 17.5%">PG</th>
-              <th style="width: 17.5%">PP</th>
-              <th style="width: 17.5%">Pts.</th>
+              <th style="width: 8.75%">PG</th>
+              <th style="width: 8.75%">PP</th>
+              <th style="width: 8.75%">GF</th>
+              <th style="width: 8.75%">GC</th>
+              <th style="width: 8.75%">DG</th>
+              <th style="width: 8.75%">%</th>
+              <th style="width: 8.75%">Pts.</th>
+              <th style="width: 8.75%">GB</th>
             </tr>
           </thead>
           <tbody id="apertura">
@@ -187,9 +192,9 @@
           $(entry).each(function(){
           if (iter == 6) {
             $('#fixture').append('<tr><td align="center" colspan="5"><i>Fecha libre: '+this.gsx$local.$t+'</i></td></tr>');
-            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$gfap.$t+'</td><td align="center">'+this.gsx$gcap.$t+'</td><td align="center">'+this.gsx$dgap.$t+'</td><td align="center">'+this.gsx$porcap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td><td align="center">'+this.gsx$gbap.$t+'</td></tr>');
           } else if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter != 7)) {
-            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            $('#apertura').append('</td><tr><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$gfap.$t+'</td><td align="center">'+this.gsx$gcap.$t+'</td><td align="center">'+this.gsx$dgap.$t+'</td><td align="center">'+this.gsx$porcap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td><td align="center">'+this.gsx$gbap.$t+'</td></tr>');
             if (iter == 0){
               $('#fixture-header').append(this.gsx$fecha.$t);
             }
@@ -201,7 +206,7 @@
               }
             }
           } else if (iter != 7) {
-            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$gfap.$t+'</td><td align="center">'+this.gsx$gcap.$t+'</td><td align="center">'+this.gsx$dgap.$t+'</td><td align="center">'+this.gsx$porcap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td><td align="center">'+this.gsx$gbap.$t+'</td></tr>');
             if (iter <= 7) {
               if (this.gsx$link.$t == '') {
                 $('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center" style="width: 35%">'+this.gsx$local.$t+'</td><td align="center" style="width: 10%">'+this.gsx$resl.$t+'</td><td align="center" style="width: 10%">-</td><td align="center" style="width: 10%">'+this.gsx$resv.$t+'</td><td align="center" style="width: 35%">'+this.gsx$visita.$t+'</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i>');
@@ -210,7 +215,7 @@
               }
             }
           } else {
-            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td></tr>');
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eqap.$t+'</td><td align="center">'+this.gsx$pgap.$t+'</td><td align="center">'+this.gsx$ppap.$t+'</td><td align="center">'+this.gsx$gfap.$t+'</td><td align="center">'+this.gsx$gcap.$t+'</td><td align="center">'+this.gsx$dgap.$t+'</td><td align="center">'+this.gsx$porcap.$t+'</td><td align="center">'+this.gsx$ptsap.$t+'</td><td align="center">'+this.gsx$gbap.$t+'</td></tr>');
           }
           iter++;
           });
