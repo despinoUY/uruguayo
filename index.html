@@ -181,6 +181,9 @@
           </table>
         </div>
         <a id='tablaAnual-a-ctx' style='display: none;'></a>
+        <p>En <mark style="background-color:#3c906a;">verde</mark> se marcan los dos equipos que clasificarían a la Copa Libertadores 2018.</p>
+        <p>En <mark style="background-color:#47bda1;">verde claro</mark> se marcan los dos equipos que clasificarían a la fase previa de la Copa Libertadores 2018.</p>
+        <p>En <mark style="background-color:#8c7ade;">azul</mark> se marcan los cuatro equipos que clasificarían a la Copa Sudamericana 2018.</p>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
@@ -203,32 +206,7 @@
           </table>
         </div>
         <a id='tablaDescenso-a-ctx' style='display: none;'></a>
-      </div>
-
-      <div class="col-lg-12" style="padding: 0">
-        <div class="panel panel-default" style="font-family: Oswald">
-          <div class="panel-heading" id="desc-header" style="font-size:18px">Clasificación a copas internacionales</div>
-          <div class="panel-body">
-            <ul>
-              <li>¿Quién clasifica a la Copa Libertadores?</li>
-              El campeón uruguayo (como Uruguay 1), el vicecampeón uruguayo (como Uruguay 2) y el siguiente club mejor ubicado en la Tabla Anual (como Uruguay 3).
-              <li>¿Quién clasifica a la Copa Sudamericana?</li>
-              El campeón del Torneo Intermedio (Nacional, salvo haya clasificado a la Libertadores, como Uruguay 4) y el resto de los clubes mejor ubicados en la Tabla Anual que no hubieran clasificado a la Copa Libertadores (como Uruguay 1, 2 y 3).
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-12" style="padding: 0">
-        <div class="panel panel-default" style="font-family: Oswald">
-          <div class="panel-heading" id="desc-header" style="font-size:18px">Descenso a Segunda División</div>
-          <div class="panel-body">
-            <ul>
-              <li>¿Quién baja a Segunda División?</li>
-              Los tres equipos peor ubicados en la Tabla del Descenso. En caso de empate en promedios, los dos equipos con mejores promedios disputarán dos partidos finales que se definirán por puntos. En caso de mantenerse el empate luego de estos dos partidos, se jugaría un tercer partido final. Si se mantiene el empate luego de los 90 minutos, se disputará una prórroga de 30 minutos y, en caso de ser necesario, se patearán penales.
-            </ul>
-          </div>
-        </div>
+        <p>En <mark style="background-color:#e29453;">naranja</mark> se marcan los tres descensos a Segunda División para el año 2018.</p>
       </div>
 
       <div id="hiddenField"><div id="divHidden"></div></div>
@@ -252,6 +230,18 @@
           var iter = 0;
 
           $(entry).each(function(){
+          if (iter <= 1) {
+            $('#anual').append('</td><tr style="background-color:#3c906a"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+          } else if (iter <= 3) {
+            $('#anual').append('</td><tr style="background-color:#47bda1"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+          } else if (iter <= 7) {
+            $('#anual').append('</td><tr style="background-color:#8c7ade"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+          } else {
+            if (Math.floor(iter%2) == 0){
+              $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
+            } else {
+              $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');            }
+          }
           if ((iter == 0) || (Math.floor(iter%2) == 0)) {
             $('#clausura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
             if (iter == 0){
@@ -268,17 +258,10 @@
           }
           if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
             $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-            if ((this.title.$t == "Row: 15") || (this.title.$t == "Row: 17")) {
-                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
-            } else {
-                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
-            }
           } else {
             if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                $('#anual').append('</td><tr><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
                 $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             } else {
-                $('#anual').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
                 $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             }
           }
