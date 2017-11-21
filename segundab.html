@@ -123,120 +123,66 @@
       </div>
       -->
 
-      <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausuraSerieA')">Descargá esta tabla!</button>
-      <div id="clausuraSerieA" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="serieA-header" style="font-size:18px">Segunda B Nacional - Torneo Clausura - Serie A</div>
-        <table class="table">
+      <div id="fixtureA" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="fixture-header" style="font-size:18px">Primera final por el ascenso a Segunda División</div>
+        <table class="table" style='vertical-align:middle;'>
           <thead>
             <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 8.75%">PJ</th>
-              <th style="width: 8.75%">PG</th>
-              <th style="width: 8.75%">PE</th>
-              <th style="width: 8.75%">PP</th>
-              <th style="width: 8.75%">GF</th>
-              <th style="width: 8.75%">GC</th>
-              <th style="width: 8.75%">DG</th>
-              <th style="width: 8.75%">Pts.</th>
+              <th style="width: 35%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 35%"></th>
             </tr>
           </thead>
-          <tbody id="serie-a">
+          <tbody id="fixture">
+            <tr>
+              <td style="font-size: 24px; text-align: center;">Albion</td>
+              <td style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">-</td>
+              <td style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">Colón</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-size: 16px;" colspan="5"><i>Detalles a definir</i></td>
+            </tr>          
           </tbody>
         </table>
       </div>
-      <a id='clausuraSerieA-a-ctx' style='display: none;'></a>
-      </div>
 
-      <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('clausuraSerieB')">Descargá esta tabla!</button>
-      <div id="clausuraSerieB" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="serieB-header" style="font-size:18px">Segunda B Nacional - Torneo Clausura - Serie B</div>
-        <table class="table">
+      <div id="fixtureA" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="fixture-header" style="font-size:18px">Segunda final por el ascenso a Segunda División</div>
+        <table class="table" style='vertical-align:middle;'>
           <thead>
             <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 8.75%">PJ</th>
-              <th style="width: 8.75%">PG</th>
-              <th style="width: 8.75%">PE</th>
-              <th style="width: 8.75%">PP</th>
-              <th style="width: 8.75%">GF</th>
-              <th style="width: 8.75%">GC</th>
-              <th style="width: 8.75%">DG</th>
-              <th style="width: 8.75%">Pts.</th>
+              <th style="width: 35%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 10%"></th>
+              <th style="width: 35%"></th>
             </tr>
           </thead>
-          <tbody id="serie-b">
+          <tbody id="fixture">
+            <tr>
+              <td style="font-size: 24px; text-align: center;">Albion</td>
+              <td style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">-</td>
+              <td style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">Colón</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-size: 16px;" colspan="5"><i>Detalles a definir</i></td>
+            </tr>          
           </tbody>
         </table>
       </div>
-      <a id='clausuraSerieB-a-ctx' style='display: none;'></a>
+
+      <div id="fixtureA" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="fixture-header" style="font-size:18px">CAMPEÓN (Ascendido a Segunda División)</div>
+        <div class="panel-body" style="text-align:center; font-weight:bold; font-size:24px;">
+          -
+        </div>
       </div>
-
-    <div id="hiddenField"><div id="divHidden"></div></div>
-
-    <p>En <mark style="background-color:#32CD32;">verde</mark> se marca al campeón del Torneo Apertura, clasificado a la final por el ascenso a Segunda División Profiesional.</p>
-
-    </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-        // ID of the Google Spreadsheet
-        var spreadsheetID = "1lIghu_PjFtRvY6OmpyGTrgmhW1LITfhWrsaBOu-yUu4";
-
-        // Make sure it is public or set to Anyone with link can view 
-        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
-
-        $.getJSON(url, function(data) {
-          var entry = data.feed.entry;
-          var iter = 0;
-
-          $(entry).each(function(){
-          if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter<=7)) {
-            if (this.gsx$equipoa.$t == 'Albion') {
-              $('#serie-a').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
-            } else {
-              $('#serie-a').append('</td><tr><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
-            }
-            $('#serie-b').append('</td><tr><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
-          } else if (iter <=7) {
-            if (this.gsx$equipoa.$t == 'Albion') {
-              $('#serie-a').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
-            } else {
-              $('#serie-a').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipoa.$t+'</td><td align="center">'+this.gsx$pja.$t+'</td><td align="center">'+this.gsx$pga.$t+'</td><td align="center">'+this.gsx$pea.$t+'</td><td align="center">'+this.gsx$ppa.$t+'</td><td align="center">'+this.gsx$gfa.$t+'</td><td align="center">'+this.gsx$gca.$t+'</td><td align="center">'+this.gsx$dga.$t+'</td><td align="center">'+this.gsx$ptsa.$t+'</td></tr>');
-            }
-            if (iter < 7) {
-              $('#serie-b').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipob.$t+'</td><td align="center">'+this.gsx$pjb.$t+'</td><td align="center">'+this.gsx$pgb.$t+'</td><td align="center">'+this.gsx$peb.$t+'</td><td align="center">'+this.gsx$ppb.$t+'</td><td align="center">'+this.gsx$gfb.$t+'</td><td align="center">'+this.gsx$gcb.$t+'</td><td align="center">'+this.gsx$dgb.$t+'</td><td align="center">'+this.gsx$ptsb.$t+'</td></tr>');
-            }
-          }
-          iter++;
-          });
-        });
-
-        function clicketyClick(name){
-          var divWidth = document.getElementById(name).outerWidth;
-          var divHeight = document.getElementById(name).outerHeight;
-          var anchor = document.getElementById(name+'-a-ctx');
-          html2canvas(document.getElementById(name), {
-            onrendered: function(canvas){
-              document.body.appendChild(canvas);
-              canvas.style.display = 'none';
-              canvas.id = name+'-ctx';
-              var ctx = document.getElementById(name+'-ctx');
-              var img = ctx.toDataURL("image/png");
-              anchor.href = ctx.toDataURL("image/png");
-              anchor.download = name+'.png';
-              anchor.click();
-            },
-            width: divWidth,
-            height: divHeight,
-          });
-        };
-    </script>
 
   </body>
 </html>
