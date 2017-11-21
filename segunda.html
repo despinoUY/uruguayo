@@ -146,8 +146,10 @@
         </table>
       </div>
       <a id='segundaDiv-a-ctx' style='display: none;'></a>
-      <p>En <mark style="background-color:#32CD32;">verde</mark> se marcan los dos ascensos a Primera División para el año 2018.</p>
-      <p>En <mark style="background-color:#8e8ef9;">azul</mark> se marcan los ocho equipos que disputarán los playoffs para definir el tercer ascenso a Primera División para el año 2018.</p>
+      <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+        <p>En <mark style="background-color:#32CD32;">este fondo</mark> se marcan los dos ascensos a Primera División para el año 2018.</p>
+        <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los ocho equipos que disputarán los playoffs para definir el tercer ascenso a Primera División para el año 2018.</p>
+      </div>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
@@ -170,7 +172,9 @@
         </table>
       </div>
       <a id='tablaDescenso-a-ctx' style='display: none;'></a>
-      <p>En <mark style="background-color:#e29453;">naranja</mark> se marcan los dos descensos a Segunda B Nacional para el año 2018.</p>
+      <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+        <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los dos descensos a Segunda B Nacional para el año 2018.</p>
+      </div>
       </div>
 
     <div id="hiddenField"><div id="divHidden"></div></div>
@@ -198,7 +202,7 @@
           if (iter <= 1) {
             $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else if (iter <= 9) {
-            $('#segunda').append('</td><tr style="background-color:#8e8ef9"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            $('#segunda').append('</td><tr style="background-color:#5794FF"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else if (Math.floor(iter%2) == 0) {
             $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else {
