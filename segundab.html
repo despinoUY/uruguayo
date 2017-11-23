@@ -184,17 +184,17 @@
 
           $(entry).each(function(){
               $('#fixture1').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc1.$t+'</td><td align="center">'+this.gsx$resloc1.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td align="center">'+this.gsx$resvis1.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis1.$t+'</td></tr>');
-              if (this.gsx$mitad1.$t != '' && this.gsx$mitad1.$t != 'ET'){
+              if (this.gsx$mitad1.$t != '' && this.gsx$mitad1.$t != 'ET' && this.gsx$mitad1.$t != 'FT'){
                   $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$time1.$t+' - '+this.gsx$mitad1.$t+'</i></td></tr>');
-              } else if (this.gsx$mitad1.$t != 'ET') {
+              } else if (this.gsx$mitad1.$t != '') {
                   $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td></tr>');
               }
               $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td></tr>');
 
               $('#fixture2').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc2.$t+'</td><td align="center">'+this.gsx$resloc2.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td align="center">'+this.gsx$resvis2.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis2.$t+'</td></tr>');
-              if (this.gsx$mitad2.$t != '' && this.gsx$mitad2.$t != 'ET'){
+              if (this.gsx$mitad2.$t != '' && this.gsx$mitad2.$t != 'ET' && this.gsx$mitad2.$t != 'FT'){
                   $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$time2.$t+' - '+this.gsx$mitad2.$t+'</i></td></tr>');
-              } else if (this.gsx$mitad1.$t != 'ET') {
+              } else if (this.gsx$mitad1.$t != '') {
                   $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td></tr>');
               }
               $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td></tr>');
