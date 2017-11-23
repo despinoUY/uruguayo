@@ -135,17 +135,7 @@
               <th style="width: 35%"></th>
             </tr>
           </thead>
-          <tbody id="fixture">
-            <tr>
-              <td style="font-size: 24px; text-align: center;">Albion</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">-</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">Colón</td>
-            </tr>
-            <tr>
-              <td align="center" style="font-size: 16px;" colspan="5"><i>Detalles a definir</i></td>
-            </tr>          
+          <tbody id="fixture1">          
           </tbody>
         </table>
       </div>
@@ -162,27 +152,55 @@
               <th style="width: 35%"></th>
             </tr>
           </thead>
-          <tbody id="fixture">
-            <tr>
-              <td style="font-size: 24px; text-align: center;">Albion</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">-</td>
-              <td style="font-size: 24px; text-align: center;"></td>
-              <td style="font-size: 24px; text-align: center;">Colón</td>
-            </tr>
-            <tr>
-              <td align="center" style="font-size: 16px;" colspan="5"><i>Detalles a definir</i></td>
-            </tr>          
+          <tbody id="fixture2">
           </tbody>
         </table>
       </div>
 
       <div id="fixtureA" class="panel panel-default" style="font-family: Oswald">
         <div class="panel-heading" id="fixture-header" style="font-size:18px">CAMPEÓN (Ascendido a Segunda División)</div>
-        <div class="panel-body" style="text-align:center; font-weight:bold; font-size:24px;">
-          -
+        <div class="panel-body" id="champ" style="text-align:center; font-weight:bold; font-size:24px;">
         </div>
       </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        // ID of the Google Spreadsheet
+        var spreadsheetID = "19srPCrgCN_VFDAGU3tnYdnQaAu-p1cHDHKEA_Rhqjn0";
+
+        // Make sure it is public or set to Anyone with link can view 
+        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+        $.getJSON(url, function(data) {
+          var entry = data.feed.entry;
+          var iter = 0;
+
+          $(entry).each(function(){
+              $('#fixture1').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc1.$t+'</td><td align="center">'+this.gsx$resloc1.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td align="center">'+this.gsx$resvis1.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis1.$t+'</td></tr>');
+              if (this.gsx$mitad1.$t != '' && this.gsx$mitad1.$t != 'ET'){
+                  $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$time1.$t+' - '+this.gsx$mitad1.$t+'</i></td></tr>');
+              } else if (this.gsx$mitad1.$t != 'ET') {
+                  $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td></tr>');
+              }
+              $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td></tr>');
+
+              $('#fixture2').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc2.$t+'</td><td align="center">'+this.gsx$resloc2.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td align="center">'+this.gsx$resvis2.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis2.$t+'</td></tr>');
+              if (this.gsx$mitad2.$t != '' && this.gsx$mitad2.$t != 'ET'){
+                  $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$time2.$t+' - '+this.gsx$mitad2.$t+'</i></td></tr>');
+              } else if (this.gsx$mitad1.$t != 'ET') {
+                  $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td></tr>');
+              }
+              $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td></tr>');
+
+              $('#champ').append(this.gsx$champ.$t)
+          });
+        });
+
+    </script>
 
   </body>
 </html>
