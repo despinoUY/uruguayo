@@ -138,7 +138,15 @@
               <th style="width: 35%"></th>
             </tr>
           </thead>
-          <tbody id="fixture1">          
+          <tbody id="fixture1">
+            <tr>
+              <td style="font-size: 24px; text-align: center;">Colón</td>
+              <td id="loc1" style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">-</td>
+              <td id="vis1" style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">Albion</td>
+
+            </tr>          
           </tbody>
         </table>
       </div>
@@ -149,13 +157,20 @@
           <thead>
             <tr>
               <th style="width: 35%"></th>
+              <th id="loc2" style="width: 10%"></th>
               <th style="width: 10%"></th>
-              <th style="width: 10%"></th>
-              <th style="width: 10%"></th>
+              <th id="vis2" style="width: 10%"></th>
               <th style="width: 35%"></th>
             </tr>
           </thead>
           <tbody id="fixture2">
+            <tr>
+              <td style="font-size: 24px; text-align: center;">Albion</td>
+              <td id="loc2" style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">-</td>
+              <td id="vis2" style="font-size: 24px; text-align: center;"></td>
+              <td style="font-size: 24px; text-align: center;">Colón</td>
+            </tr>          
           </tbody>
         </table>
       </div>
@@ -178,12 +193,15 @@
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
 
+        var firstIter = 0;
+
         $.getJSON(url, function(data) {
           var entry = data.feed.entry;
           var iter = 0;
 
           $(entry).each(function(){
-              $('#fixture1').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc1.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$resloc1.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td style="font-size: 24px; text-align: center;">'+this.gsx$resvis1.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis1.$t+'</td></tr>');
+              $('#fixture1 #loc1').html(this.gsx$resloc1.$t);
+              $('#fixture1 #vis1').html(this.gsx$resvis1.$t);
               if (this.gsx$mitad1.$t != '' && this.gsx$mitad1.$t != 'ET' && this.gsx$mitad1.$t != 'FT'){
                   var parts = this.gsx$time1.$t.split(':');
                   var timeMinutes = ((parseInt(parts[0])) * 60) + parseInt(parts[1]);
@@ -192,19 +210,17 @@
                   var oneDayMinutes = 24 * 60;
                   var gamingTime = nowMinutes-timeMinutes;
                   $('#fixture1').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+' - '+gamingTime+'\'</i></td></tr>');
-                  setInterval(function(){
-                      var now = new Date();
-                      var nowMinutes = (now.getHours() * 60) + now.getMinutes();
-                      var oneDayMinutes = 24 * 60;
-                      var gamingTime = nowMinutes-timeMinutes;
-                      $('#fixture1 #time').html('<td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+' - '+gamingTime+'\'</i></td>');
-                  }, 60*1000);
-              } else if (this.gsx$mitad1.$t != '') {
-                  $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td></tr>');
+                  var now = new Date();
+                  var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                  var oneDayMinutes = 24 * 60;
+                  var gamingTime = nowMinutes-timeMinutes;
+              } else if (this.gsx$mitad1.$t == 'ET' || this.gsx$mitad1.$t == 'FT') {
+                  $('#fixture1').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td></tr>');
               }
-              $('#fixture1').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td></tr>');
+              $('#fixture1').append('<tr id="det1"><td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td></tr>');
 
-              $('#fixture2').append('</td><tr><td style="font-size: 24px; text-align: center;">'+this.gsx$loc2.$t+'</td><td align="center">'+this.gsx$resloc2.$t+'</td><td style="font-size: 24px; text-align: center;">-</td><td align="center">'+this.gsx$resvis2.$t+'</td><td style="font-size: 24px; text-align: center;">'+this.gsx$vis2.$t+'</td></tr>');
+              $('#fixture1 #loc2').html(this.gsx$resloc2.$t);
+              $('#fixture1 #vis2').html(this.gsx$resvis2.$t);
               if (this.gsx$mitad2.$t != '' && this.gsx$mitad2.$t != 'ET' && this.gsx$mitad2.$t != 'FT'){
                   var parts = this.gsx$time2.$t.split(':');
                   var timeMinutes = ((parseInt(parts[0])) * 60) + parseInt(parts[1]);
@@ -213,21 +229,100 @@
                   var oneDayMinutes = 24 * 60;
                   var gamingTime = nowMinutes-timeMinutes;
                   $('#fixture2').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+' - '+gamingTime+'\'</i></td></tr>');
-                  setInterval(function(){
+                  var now = new Date();
+                  var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                  var oneDayMinutes = 24 * 60;
+                  var gamingTime = nowMinutes-timeMinutes;
+              } else if (this.gsx$mitad1.$t == 'ET' || this.gsx$mitad1.$t == 'FT') {
+                  $('#fixture2').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td></tr>');
+              }
+              $('#fixture2').append('<tr id="det1"><td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td></tr>');
+
+              $('#champ').html(this.gsx$champ.$t)
+          });
+        });
+
+        setInterval(function(){
+          $.getJSON(url, function(data) {
+            var entry = data.feed.entry;
+            var iter = 0;
+
+            $(entry).each(function(){
+                $('#fixture1 #loc1').html(this.gsx$resloc1.$t);
+                $('#fixture1 #vis1').html(this.gsx$resvis1.$t);
+                if (this.gsx$mitad1.$t != '' && this.gsx$mitad1.$t != 'ET' && this.gsx$mitad1.$t != 'FT'){
+                    var parts = this.gsx$time1.$t.split(':');
+                    var timeMinutes = ((parseInt(parts[0])) * 60) + parseInt(parts[1]);
+                    var now = new Date();
+                    var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                    var oneDayMinutes = 24 * 60;
+                    var gamingTime = nowMinutes-timeMinutes;
+                    if (firstIter<1){
+                      $('#fixture1').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+' - '+gamingTime+'\'</i></td></tr>');
+                      var now = new Date();
+                      var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                      var oneDayMinutes = 24 * 60;
+                      var gamingTime = nowMinutes-timeMinutes;
+                    } else {
+                      var now = new Date();
+                      var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                      var oneDayMinutes = 24 * 60;
+                      var gamingTime = nowMinutes-timeMinutes;
+                      $('#fixture1 #time').html('<td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+' - '+gamingTime+'\'</i></td>');
+                    }
+                } else if (this.gsx$mitad1.$t == 'ET' || this.gsx$mitad1.$t == 'FT') {
+                    if (firstIter<1){
+                      $('#fixture1').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td></tr>');
+                    } else {
+                      $('#fixture1 #time').html('<td align="center" colspan="5"><i>'+this.gsx$mitad1.$t+'</i></td>');
+                    }
+                }
+                if (firstIter<1){
+                  $('#fixture1').append('<tr id="det1"><td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td></tr>');
+                } else {
+                  $('#fixture1 #det').append('<td align="center" colspan="5"><i>'+this.gsx$det1.$t+'</i></td>');
+                }
+
+                $('#fixture1 #loc2').html(this.gsx$resloc2.$t);
+                $('#fixture1 #vis2').html(this.gsx$resvis2.$t);
+                if (this.gsx$mitad2.$t != '' && this.gsx$mitad2.$t != 'ET' && this.gsx$mitad2.$t != 'FT'){
+                    var parts = this.gsx$time2.$t.split(':');
+                    var timeMinutes = ((parseInt(parts[0])) * 60) + parseInt(parts[1]);
+                    var now = new Date();
+                    var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                    var oneDayMinutes = 24 * 60;
+                    var gamingTime = nowMinutes-timeMinutes;
+                    if (firstIter<1){
+                      $('#fixture2').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+' - '+gamingTime+'\'</i></td></tr>');
+                      var now = new Date();
+                      var nowMinutes = (now.getHours() * 60) + now.getMinutes();
+                      var oneDayMinutes = 24 * 60;
+                      var gamingTime = nowMinutes-timeMinutes;
+                    } else {
                       var now = new Date();
                       var nowMinutes = (now.getHours() * 60) + now.getMinutes();
                       var oneDayMinutes = 24 * 60;
                       var gamingTime = nowMinutes-timeMinutes;
                       $('#fixture2 #time').html('<td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+' - '+gamingTime+'\'</i></td>');
-                  }, 60*1000);
-              } else if (this.gsx$mitad1.$t != '') {
-                  $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td></tr>');
-              }
-              $('#fixture2').append('<tr><td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td></tr>');
+                    }
+                } else if (this.gsx$mitad1.$t == 'ET' || this.gsx$mitad1.$t == 'FT') {
+                    if (firstIter<1){
+                      $('#fixture2').append('<tr id="time"><td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td></tr>');
+                    } else {
+                      $('#fixture2 #time').html('<td align="center" colspan="5"><i>'+this.gsx$mitad2.$t+'</i></td>');
+                    }
+                }
+                if (firstIter<1){
+                  $('#fixture2').append('<tr id="det1"><td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td></tr>');
+                } else {
+                  $('#fixture2 #det').append('<td align="center" colspan="5"><i>'+this.gsx$det2.$t+'</i></td>');
+                }
 
-              $('#champ').append(this.gsx$champ.$t)
+                  $('#champ').html(this.gsx$champ.$t)
+            });
           });
-        });
+          firstIter += 1;
+        }, 60*1000);
 
     </script>
 
