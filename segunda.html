@@ -104,7 +104,6 @@
             <li><a href="index.html">Primera División</a></li>
             <li><a href="#">Segunda División</a></li>
             <li><a href="segundab.html">Segunda B Nacional</a></li>
-            <li><a href="lub.html">Básquetbol</a></li>
 
 <!--
               <li><a href="more-stats.html">Más estadísticas</a></li>
@@ -150,8 +149,7 @@
       </div>
       <a id='segundaDiv-a-ctx' style='display: none;'></a>
       <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
-        <p>En <mark style="background-color:#32CD32;">este fondo</mark> se marcan los dos ascensos a Primera División para el año 2018.</p>
-        <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los ocho equipos que disputarán los playoffs para definir el tercer ascenso a Primera División para el año 2018.</p>
+        <p>En <mark style="background-color:#32CD32;">este fondo</mark> se marcan los tres ascensos a Primera División para el año 2019.</p>
       </div>
       </div>
 
@@ -164,8 +162,8 @@
             <tr>
               <th style="width: 30%">Equipo</th>
               <th style="width: 14%">PJ</th>
-              <th style="width: 14%">'15/'16</th>
               <th style="width: 14%">'17</th>
+              <th style="width: 14%">'18</th>
               <th style="width: 14%">Pts.</th>
               <th style="width: 14%">Avg.</th>
             </tr>
@@ -176,7 +174,7 @@
       </div>
       <a id='tablaDescenso-a-ctx' style='display: none;'></a>
       <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
-        <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los dos descensos a Segunda B Nacional para el año 2018.</p>
+        <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los dos descensos a Segunda B Nacional para el año 2019.</p>
       </div>
       </div>
 
@@ -192,7 +190,7 @@
 
     <script type="text/javascript">
         // ID of the Google Spreadsheet
-        var spreadsheetID = "1CJdDY5RKc8S9ULDI3uu7DJvOYIPhM3xWAK_NRD8aPvY";
+        var spreadsheetID = "1WpbU0TWSl_-UUJ_OsLywnadnq2UG2DRC8Te-Xnd3DX4";
 
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
@@ -202,22 +200,20 @@
           var iter = 0;
 
           $(entry).each(function(){
-          if (iter <= 1) {
+          if (iter <= 2) {
             $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else if (iter <= 9) {
-            $('#segunda').append('</td><tr style="background-color:#5794FF"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else if (Math.floor(iter%2) == 0) {
             $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           } else {
             $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           }
-          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
-            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+          if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
           } else {
             if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-              $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+              $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             } else {
-              $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt16.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+              $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             }
           }
           iter++;
