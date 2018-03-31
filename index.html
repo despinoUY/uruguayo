@@ -56,6 +56,15 @@
   </head>
   <body>
 
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=135741283637596&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};
@@ -108,8 +117,8 @@
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><iframe style='margin: 10px; margin-bottom: 0px' src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.campeonatouruguayo.uy&layout=button&size=large&mobile_iframe=true&appId=135741283637596&width=72&height=28" width="72" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
-              <li><div style='margin: 10px; margin-bottom: 0px'><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Las%20tablas%20del%20Uruguayo%20(con%20la%20del%20Descenso%20inclu%C3%ADda!)&url=http://www.campeonatouruguayo.uy" data-size='large'>Tweet</a></div></li>
+              <li><a target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.campeonatouruguayo.uy%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></li>
+              <li><a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Las%20tablas%20del%20Uruguayo%20(con%20la%20del%20Descenso%20inclu%C3%ADda!)&url=http://www.campeonatouruguayo.uy" data-size='large'></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -117,7 +126,7 @@
 
       <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
       <div class="panel panel-default" style="padding: 0; maxwidth: 100%;">
-        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald">
+        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald; margin-bottom: 0;">
           <div class="panel-heading" id="fixture-header" style="font-size:18px">Torneo </div>
           <table class="table" style='vertical-align:middle;'>
             <thead>
