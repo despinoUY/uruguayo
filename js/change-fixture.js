@@ -29,7 +29,7 @@ function renderFixture(week, head="Torneo"){
 }
 
 function renderFixtureSegunda(week){
-	if ((week>0) && (week<16)){
+	if ((week>0) && (week<27)){
 		$.getJSON(url, function(data) {
 			let entry = data.feed.entry;
 			$('#fixture-title').text("Segunda División - Fecha "+week);
