@@ -233,27 +233,29 @@
           var iter = 0;
 
           $(entry).each(function(){
-            if (iter == 0){
-              fecha = parseInt(this.gsx$fecha.$t);
-              renderFixtureSegunda(fecha);
-            }
-            if (iter <= 2) {
-              $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-            } else if (Math.floor(iter%2) == 0) {
-              $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-            } else {
-              $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-            }
-            if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
-              $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-            } else {
-              if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-              } else {
-                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            if (iter < 15) {
+              if (iter == 0){
+                fecha = parseInt(this.gsx$fecha.$t);
+                renderFixtureSegunda(fecha);
               }
+              if (iter <= 2) {
+                $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+              } else if (Math.floor(iter%2) == 0) {
+                $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+              } else {
+                $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+              }
+              if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
+                $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+              } else {
+                if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+                  $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+                } else {
+                  $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+                }
+              }
+              iter++;
             }
-            iter++;
           });
         });
 
