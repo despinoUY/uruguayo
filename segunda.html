@@ -138,7 +138,11 @@
       <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
       <div class="panel panel-default" style="padding: 0; maxwidth: 100%;">
         <div id="fixtureC" class="panel panel-default" style="font-family: Oswald; margin-bottom:0;">
-          <div class="panel-heading" id="fixture-header" style="font-size:18px">Segunda División Profesional - Fecha </div>
+          <div class="panel-heading" id="fixture-header" style="font-size:18px; text-align:center; position:relative">
+            <button class="btn" id="back" style="position: absolute; left:15px; width:25px; display:inline;" onclick="renderFixture(parseInt(fecha)-1,'Segunda División')">&lt;</button>
+            <div id="fixture-title"></div>
+            <button class="btn" id="forward" style="position: absolute; right:15px; width:25px; display:inline; margin-top: -26px;" onclick="renderFixture(parseInt(fecha)+1,'Segunda División');">&gt;</button>
+          </div>
           <table class="table" style='vertical-align:middle;'>
             <thead>
               <tr>
@@ -221,35 +225,34 @@
     <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        // ID of the Google Spreadsheet
-        var spreadsheetID = "1WpbU0TWSl_-UUJ_OsLywnadnq2UG2DRC8Te-Xnd3DX4";
-
-        // Make sure it is public or set to Anyone with link can view 
-        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+        url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID['segunda'] + "/od6/public/values?alt=json";
 
         $.getJSON(url, function(data) {
           var entry = data.feed.entry;
           var iter = 0;
 
           $(entry).each(function(){
-          fixtureLoader(iter,this);
-          if (iter <= 2) {
-            $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else if (Math.floor(iter%2) == 0) {
-            $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          } else {
-            $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-          }
-          if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
-            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-          } else {
-            if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-              $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-            } else {
-              $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            if (iter == 0){
+              fecha = this.gsx$fecha.$t;
+              renderFixture(fecha,'Segunda División');
             }
-          }
-          iter++;
+            if (iter <= 2) {
+              $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            } else if (Math.floor(iter%2) == 0) {
+              $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            } else {
+              $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            }
+            if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
+              $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            } else {
+              if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+                $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+              } else {
+                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+              }
+            }
+            iter++;
           });
         });
 
