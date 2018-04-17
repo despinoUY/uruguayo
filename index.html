@@ -214,11 +214,12 @@
             <thead>
               <tr>
                 <th style="width: 30%">Equipo</th>
-                <th style="width: 14%">PJ</th>
-                <th style="width: 14%">'17</th>
-                <th style="width: 14%">'18</th>
-                <th style="width: 14%">Pts.</th>
-                <th style="width: 14%">Avg.</th>
+                <th style="width: 11.7%">PJ</th>
+                <th style="width: 11.7%">GF</th>
+                <th style="width: 11.7%">GC</th>
+                <th style="width: 11.7%">G Avg.</th>
+                <th style="width: 11.7%">Pts.</th>
+                <th style="width: 11.7%">Pt. Avg</th>
               </tr>
             </thead>
             <tbody id="descenso">
@@ -259,12 +260,12 @@
             $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
           }
           if ($.inArray(this.title.$t,["Row: 16", "Row: 15"])>= 0){
-            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
           } else if (iter < 15) {
             if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+                $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             } else {
-                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
             }
           }
           iter++;
