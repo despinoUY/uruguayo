@@ -34,10 +34,10 @@
     <!-- Begin Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -112,7 +112,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#">Primera División</a></li>
+              <li><a href="index.html">Primera División</a></li>
               <li><a href="segunda.html">Segunda División</a></li>
               <li><a href="segundab.html">Segunda B Nacional</a></li>
               <li class="dropdown">
@@ -133,20 +133,13 @@
         </div><!--/.container-fluid -->
       </nav>
 
-      <!--
-      <div class="page-header">
-        <h1>Las tablas del Uruguayo</h1>
-        <p class="lead">¿Cansado de no encontrar las tablas del fútbol uruguayo? Acá las tenés.</p>
-      </div>
-      -->
-
       <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
       <div class="panel panel-default" style="padding: 0; maxwidth: 100%;">
-        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald; margin-bottom:0;">
+        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald; margin-bottom: 0;">
           <div class="panel-heading" id="fixture-header" style="font-size:18px; text-align:center; position:relative">
-            <button class="btn" id="back" style="position: absolute; left:15px; width:32px; margin-top:-4px; display:inline;" onclick="renderFixtureSegunda(fecha-1,'Segunda División')">&lt;</button>
-            <div id="fixture-title">Segunda División</div>
-            <button class="btn" id="forward" style="position: absolute; right:15px; width:32px; margin-top:-30px; display:inline;" onclick="renderFixtureSegunda(fecha+1);">&gt;</button>
+            <button class="btn" id="back" style="position: absolute; left:15px; width:32px; margin-top:-4px; display:inline;" onclick="renderFixtureFemenino(parseInt(fecha)-1)">&lt;</button>
+            <div id="fixture-title">Femenino - Divisional B</div>
+            <button class="btn" id="forward" style="position: absolute; right:15px; width:32px; margin-top:-30px; display:inline;" onclick="renderFixtureFemenino(parseInt(fecha)+1);">&gt;</button>
           </div>
           <table class="table" style='vertical-align:middle;'>
             <thead>
@@ -165,11 +158,9 @@
         <a id='fixtureC-a-ctx' style='display: none;'></a>
       </div>
 
-
-      <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('segundaDiv')">Descargá esta tabla!</button>
-      <div id="segundaDiv" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="segunda-header" style="font-size:18px">Segunda División - Tabla Anual</div>
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tApertura')">Descargá esta tabla!</button>
+      <div id="tApertura" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="apertura-header" style="font-size:18px">Torneo </div>
         <table class="table">
           <thead>
             <tr>
@@ -184,45 +175,69 @@
               <th style="width: 8.75%">Pts.</th>
             </tr>
           </thead>
-          <tbody id="segunda">
+          <tbody id="apertura">
           </tbody>
         </table>
       </div>
-      <a id='segundaDiv-a-ctx' style='display: none;'></a>
-      <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
-        <p>En <mark style="background-color:#32CD32;">este fondo</mark> se marcan los tres ascensos a Primera División para el año 2019.</p>
-      </div>
+      <a id='tApertura-a-ctx' style='display: none;'></a>
+<!--
+      <div class="col-lg-6" style="padding: 0">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaAnual')">Descargá esta tabla!</button>
+        <div id="tablaAnual" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="anual-header" style="font-size:18px">Tabla Anual</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="anual">
+            </tbody>
+          </table>
+        </div>
+        <a id='tablaAnual-a-ctx' style='display: none;'></a>
+        <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+          <p>En <mark style="background-color:#3c906a;">este fondo</mark> se marcan los dos equipos que clasificarían a la Copa Libertadores 2019.</p>
+          <p>En <mark style="background-color:#47bda1;">este fondo</mark> se marcan los dos equipos que clasificarían a la fase previa de la Copa Libertadores 2019.</p>
+          <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los cuatro equipos que clasificarían a la Copa Sudamericana 2019.</p>
+        </div>
       </div>
 
       <div class="col-lg-6" style="padding: 0">
-<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
-      <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
-        <div class="panel-heading" id="desc-header" style="font-size:18px">Segunda División - Tabla del Descenso</div>
-        <table class="table" style="font-family: Oswald">
-          <thead>
-            <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 14%">PJ</th>
-              <th style="width: 14%">'17</th>
-              <th style="width: 14%">'18</th>
-              <th style="width: 14%">Pts.</th>
-              <th style="width: 14%">Avg.</th>
-            </tr>
-          </thead>
-          <tbody id="descenso">
-          </tbody>
-        </table>
-      </div>
-      <a id='tablaDescenso-a-ctx' style='display: none;'></a>
-      <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
-        <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los dos descensos a Segunda B Nacional para el año 2019.</p>
-      </div>
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+        <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
+          <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso</div>
+          <table class="table" style="font-family: Oswald">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 11.7%">PJ</th>
+                <th style="width: 11.7%">GF</th>
+                <th style="width: 11.7%">GC</th>
+                <th style="width: 11.7%">G Avg.</th>
+                <th style="width: 11.7%">Pts.</th>
+                <th style="width: 11.7%">Avg.</th>
+              </tr>
+            </thead>
+            <tbody id="descenso">
+            </tbody>
+          </table>
+        </div>
+        <a id='tablaDescenso-a-ctx' style='display: none;'></a>
       </div>
 
-    <div id="hiddenField"><div id="divHidden"></div></div>
+      <div id="hiddenField"><div id="divHidden"></div></div>
 
     </div>
-
+-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -230,51 +245,36 @@
     <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        url = "https://spreadsheets.google.com/feeds/list/"+spreadsheetID['segunda']+"/od6/public/values?alt=json";
+        var fecha;
+        divisionalFem = "B";
+        url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID['femeninob'] + "/od6/public/values?alt=json";
 
         $.getJSON(url, function(data) {
-          var entry = data.feed.entry;
-          var iter = 0;
-
+          let entry = data.feed.entry;
+          let iter = 0;
           $(entry).each(function(){
-            if (iter < 14) {
-              if (iter == 0){
-                fecha = parseInt(this.gsx$fecha.$t);
-                renderFixtureSegunda(fecha);
-              }
-              if (iter <= 2) {
-                $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              } else if (Math.floor(iter%2) == 0) {
-                $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              } else {
-                $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              }
-              if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
-                $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-              } else {
-                if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                  $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-                } else {
-                  $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-                }
-              }
-              iter++;
+          if (((iter == 0) || (Math.floor(iter%2) == 0)) && (iter < 10)){
+            $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+            if (iter == 0){
+              fecha = this.gsx$fecha.$t;
+              renderFixtureFemenino(fecha);
+              $('#apertura-header').append(this.gsx$torneo.$t+' - Tabla');
             }
+          } else if (iter < 10) {
+            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+          }
+          if ($.inArray(this.title.$t,["Row: 16", "Row: 15"])>= 0){
+            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+          } else if (iter < 15) {
+            if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+                $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            } else {
+                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+            }
+          }
+          iter++;
           });
         });
-
-        function fixtureLoader(iter,jsonObj){
-          if (iter == 0) {
-            $('#fixture-header').append(jsonObj.gsx$fecha.$t);
-          }
-          if (iter <= 6) {
-            if (Math.floor(iter%2) == 0) {
-              $('#fixture').append('<tr><td align="center">'+jsonObj.gsx$local.$t+'</td><td align="center">'+jsonObj.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+jsonObj.gsx$resv.$t+'</td><td align="center">'+jsonObj.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+jsonObj.gsx$specs.$t+'</i></td></tr>');
-            } else {
-              $('#fixture').append('<tr style="background-color:#CBCBCB"><td align="center">'+jsonObj.gsx$local.$t+'</td><td align="center">'+jsonObj.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+jsonObj.gsx$resv.$t+'</td><td align="center">'+jsonObj.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+jsonObj.gsx$specs.$t+'</i></td></tr>');
-            }
-          }
-        }
 
         function clicketyClick(name){
           var divWidth = document.getElementById(name).outerWidth;
