@@ -112,8 +112,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#">Primera División</a></li>
-              <li><a href="segunda.html">Segunda División</a></li>
+              <li><a href="index.html">Primera División</a></li>
+              <li><a href="#">Segunda División</a></li>
               <li><a href="segundab.html">Segunda B Nacional</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Femenino</a>
@@ -230,72 +230,11 @@
     <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        url = "https://spreadsheets.google.com/feeds/list/"+spreadsheetID['segunda']+"/od6/public/values?alt=json";
-
-        $.getJSON(url, function(data) {
-          var entry = data.feed.entry;
-          var iter = 0;
-
-          $(entry).each(function(){
-            if (iter < 14) {
-              if (iter == 0){
-                fecha = parseInt(this.gsx$fecha.$t);
-                renderFixtureSegunda(fecha);
-              }
-              if (iter <= 2) {
-                $('#segunda').append('</td><tr style="background-color:#32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              } else if (Math.floor(iter%2) == 0) {
-                $('#segunda').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              } else {
-                $('#segunda').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-              }
-              if ($.inArray(this.title.$t,["Row: 15", "Row: 14"])>= 0){
-                $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-              } else {
-                if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                  $('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-                } else {
-                  $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-                }
-              }
-              iter++;
-            }
-          });
-        });
-
-        function fixtureLoader(iter,jsonObj){
-          if (iter == 0) {
-            $('#fixture-header').append(jsonObj.gsx$fecha.$t);
-          }
-          if (iter <= 6) {
-            if (Math.floor(iter%2) == 0) {
-              $('#fixture').append('<tr><td align="center">'+jsonObj.gsx$local.$t+'</td><td align="center">'+jsonObj.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+jsonObj.gsx$resv.$t+'</td><td align="center">'+jsonObj.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+jsonObj.gsx$specs.$t+'</i></td></tr>');
-            } else {
-              $('#fixture').append('<tr style="background-color:#CBCBCB"><td align="center">'+jsonObj.gsx$local.$t+'</td><td align="center">'+jsonObj.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+jsonObj.gsx$resv.$t+'</td><td align="center">'+jsonObj.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+jsonObj.gsx$specs.$t+'</i></td></tr>');
-            }
-          }
-        }
-
-        function clicketyClick(name){
-          var divWidth = document.getElementById(name).outerWidth;
-          var divHeight = document.getElementById(name).outerHeight;
-          var anchor = document.getElementById(name+'-a-ctx');
-          html2canvas(document.getElementById(name), {
-            onrendered: function(canvas){
-              document.body.appendChild(canvas);
-              canvas.style.display = 'none';
-              canvas.id = name+'-ctx';
-              var ctx = document.getElementById(name+'-ctx');
-              var img = ctx.toDataURL("image/png");
-              anchor.href = ctx.toDataURL("image/png");
-              anchor.download = name+'.png';
-              anchor.click();
-            },
-            width: divWidth,
-            height: divHeight,
-          });
-        };
+        url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID['segunda'] + "/od6/public/values?alt=json";
+        var segunda = true;
     </script>
+    <script type="text/javascript" src="js/render-data.js"></script>
+    <script type="text/javascript" src="js/load-tables.js"></script>
 
   </body>
   <footer class="footer">
