@@ -32,7 +32,11 @@ function clicketyClick(name){
 };
 
 function renderFixture(week, head="Torneo"){
-	if ((week>0) && (week<16)){
+	let limit = 16;
+	if (torneo = "Intermedio"){
+		limit = 8;
+	}
+	if ((week>0) && (week<limit)){
 		let iter = 0;
 		$(entry).each(function() {
 			if (iter == 0){
