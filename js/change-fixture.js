@@ -16,7 +16,7 @@ function renderFixture(week, head="Torneo"){
 		let iter = 0;
 		$(entry).each(function() {
 			if (iter == 0){
-				$('#fixture-title').text("Torneo "+this.gsx$torneo.$t+" - Fecha "+week);
+				$('#fixture-title').text("Torneo "+torneo+" - Fecha "+week);
 				$('#fixture').text("");
 			}
 			if ((iter >= (week-1)*8) && (iter < (week)*8)) {
