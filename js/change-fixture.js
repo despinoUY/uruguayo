@@ -11,6 +11,26 @@ var url = "";
 var divisionalFem = "";
 var torneo = "";
 
+function clicketyClick(name){
+	var divWidth = document.getElementById(name).outerWidth;
+	var divHeight = document.getElementById(name).outerHeight;
+	var anchor = document.getElementById(name+'-a-ctx');
+	html2canvas(document.getElementById(name), {
+		onrendered: function(canvas){
+			document.body.appendChild(canvas);
+			canvas.style.display = 'none';
+			canvas.id = name+'-ctx';
+			var ctx = document.getElementById(name+'-ctx');
+			var img = ctx.toDataURL("image/png");
+			anchor.href = ctx.toDataURL("image/png");
+			anchor.download = name+'.png';
+			anchor.click();
+		},
+		width: divWidth,
+		height: divHeight,
+	});
+};
+
 function renderFixture(week, head="Torneo"){
 	if ((week>0) && (week<16)){
 		let iter = 0;
