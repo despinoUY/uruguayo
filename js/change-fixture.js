@@ -7,8 +7,6 @@ var spreadsheetID = {
 		'femeninob': "1pue2yltn5w0Sw1OrWwhtEidDTJWKAsVoYsuT0Z_m3Yw"
 	};
 // Make sure it is public or set to Anyone with link can view 
-var url = "";
-var divisionalFem = "";
 var torneo = "";
 
 function clicketyClick(name){
@@ -103,17 +101,21 @@ function renderFixtureSegundaB(week){
 
 function renderFixtureFemenino(week){
 	if ((week>0) && (week<10)){
-		$.getJSON(url, function(data) {
-			let entry = data.feed.entry;
-			$('#fixture-title').text("Femenino - Divisional "+ divisionalFem + " - Fecha "+week);
-			$('#fixture').text("");
-			for(let i=0; i<5; i++) {
-				if (Math.floor(i%2) == 0) {
-					$('#fixture').append('</td><tr><td align="center">'+entry[(week-1)*5+i].gsx$local.$t+'</td><td align="center">'+entry[(week-1)*5+i].gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+entry[(week-1)*5+i].gsx$resv.$t+'</td><td align="center">'+entry[(week-1)*5+i].gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+entry[(week-1)*5+i].gsx$specs.$t+'</i></td></tr>');
+		let iter = 0;
+		$(entry).each(function() {
+			if (iter == 0){
+				$('#fixture-title').text("Femenino - Divisional "+ divisionalFem + " - Fecha "+week);
+				$('#fixture').text("");
+			}
+			if ((iter >= (week-1)*5) && (iter < (week)*5)) {
+				if (Math.floor((iter-((week-1)*5))%2) == 0) {
+					console.log(this,'</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
+					$('#fixture').append('</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
 	            } else {
-					$('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+entry[(week-1)*5+i].gsx$local.$t+'</td><td align="center">'+entry[(week-1)*5+i].gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+entry[(week-1)*5+i].gsx$resv.$t+'</td><td align="center">'+entry[(week-1)*5+i].gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+entry[(week-1)*5+i].gsx$specs.$t+'</i></td></tr>');
+					$('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
 	            }
 			}
+			iter++;
 		});
 		fecha = week;	
 	}

@@ -9,8 +9,10 @@ if (divisional == "primera"){
 	renderFixture(fecha);
 } else if (divisional == "segunda")	{
 	renderFixtureSegunda(fecha);
-} else {
+} else if (divisional == "segundab"){
 	renderFixtureSegundaB(fecha);
+} else {
+	renderFixtureFemenino(fecha);
 }
 
 // Loading Torneo Intermedio tables
@@ -110,6 +112,19 @@ if (divisional == "primera"){
 				$('#segundab').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			} else {
 				$('#segundab').append('<tr style="background-color: #CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+			}
+		}
+		iter++;
+	});
+} else {
+		// Loading Tabla de Torneos Femeninos tables
+	iter = 0;
+	$(entry).each(function(){
+		if (iter < 10) {
+			if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+				$('#apertura').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+			} else {
+				$('#apertura').append('<tr style="background-color: #CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			}
 		}
 		iter++;
