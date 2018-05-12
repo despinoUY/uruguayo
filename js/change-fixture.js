@@ -2,7 +2,7 @@
 var spreadsheetID = {
 		'primera':   "1EiRUYeVJDMstNGVABFXAqARRmwBbtlEkdQ5M0WWtJgE",
 		'segunda':   "1WpbU0TWSl_-UUJ_OsLywnadnq2UG2DRC8Te-Xnd3DX4",
-		'segundab':  "1tXHJ_p2dIIIkytbmCadpP_ABdnyuN0mADAxRlrtoqeM",
+		'segundab':  "1Npyx-thhvP7hFNcBCqLzHvUS4IpVb61pAL_sNU8CuYg",
 		'femeninoa': "1MvXQbIuk_hGiY1m3Dx-ANRhBRaUzg-QCu1nlzPTEeBs",
 		'femeninob': "1pue2yltn5w0Sw1OrWwhtEidDTJWKAsVoYsuT0Z_m3Yw"
 	};
@@ -69,6 +69,27 @@ function renderFixtureSegunda(week){
 			}
 			if ((iter >= (week-1)*7) && (iter < (week)*7)) {
 				if (Math.floor((iter-((week-1)*7))%2) == 0) {
+					$('#fixture').append('</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
+	            } else {
+					$('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
+	            }
+			}
+			iter++;
+		});
+		fecha = week;	
+	}
+}
+
+function renderFixtureSegundaB(week){
+	if ((week>0) && (week<16)){
+		let iter = 0;
+		$(entry).each(function() {
+			if (iter == 0){
+				$('#fixture-title').text("Segunda B Nacional - Fecha "+week);
+				$('#fixture').text("");
+			}
+			if ((iter >= (week-1)*8) && (iter < (week)*8)) {
+				if (Math.floor((iter-((week-1)*8))%2) == 0) {
 					$('#fixture').append('</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
 	            } else {
 					$('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');

@@ -5,10 +5,12 @@ var entry = jsonObject.feed.entry;
 fecha  = entry[0].gsx$fecha.$t;
 torneo = entry[0].gsx$torneo.$t;
 
-if (segunda){
+if (divisional == "primera"){
+	renderFixture(fecha);
+} else if (divisional == "segunda")	{
 	renderFixtureSegunda(fecha);
 } else {
-	renderFixture(fecha);
+	renderFixtureSegundaB(fecha);
 }
 
 // Loading Torneo Intermedio tables
@@ -34,7 +36,7 @@ if (torneo == "Intermedio"){
 	});
 }
 
-if (!segunda){
+if (divisional == "primera"){
 	// Loading Tabla Anual tables
 	iter = 0;
 	$(entry).each(function(){
@@ -68,7 +70,7 @@ if (!segunda){
 		}
 		iter++;
 	});
-} else {
+} else if (divisional == "segunda"){
 	// Loading Tabla de Segunda División tables
 	iter = 0;
 	$(entry).each(function(){
@@ -94,6 +96,20 @@ if (!segunda){
 				$('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
 			} else {
 		    	$('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$pt17.$t+'</td><td align="center">'+this.gsx$pt18.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
+			}
+		}
+		iter++;
+	});
+} else if (divisional == "segundab") {
+	iter = 0;
+	$(entry).each(function(){
+		if (iter < 8){
+			$('#segundab').append('<tr style="background-color: #32CD32"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+		} else if (iter < 16) {
+			if ((iter == 0) || (Math.floor(iter%2) == 0)) {
+				$('#segundab').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
+			} else {
+				$('#segundab').append('<tr style="background-color: #CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			}
 		}
 		iter++;
