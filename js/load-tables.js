@@ -46,7 +46,7 @@ if (divisional == "primera"){
 			$('#anual').append('<tr style="background-color:#3c906a"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
 		} else if ($.inArray(this.title.$t,["Row: 5", "Row: 4"])>= 0){
 			$('#anual').append('<tr style="background-color:#47bda1"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
-		} else if ($.inArray(this.title.$t,["Row: 7", "Row: 6"])>= 0){
+		} else if ($.inArray(this.title.$t,["Row: 9", "Row: 8", "Row: 7", "Row: 6"])>= 0){
 			$('#anual').append('<tr style="background-color:#5794FF"><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
 		} else if (iter < 15){
 			if (Math.floor(iter % 2) == 0){
