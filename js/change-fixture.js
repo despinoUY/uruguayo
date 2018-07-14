@@ -6,7 +6,7 @@ var spreadsheetID = {
 		'femeninoa': "1MvXQbIuk_hGiY1m3Dx-ANRhBRaUzg-QCu1nlzPTEeBs",
 		'femeninob': "1pue2yltn5w0Sw1OrWwhtEidDTJWKAsVoYsuT0Z_m3Yw"
 	};
-// Make sure it is public or set to Anyone with link can view 
+// Make sure it is public or set to Anyone with link can view
 var torneo = "";
 
 function clicketyClick(name){
@@ -31,7 +31,7 @@ function clicketyClick(name){
 
 function renderFixture(week, head="Torneo"){
 	let limit = 16;
-	if (torneo = "Intermedio"){
+	if (torneo == "Intermedio"){
 		limit = 8;
 	}
 	if ((week>0) && (week<limit)){
@@ -53,7 +53,7 @@ function renderFixture(week, head="Torneo"){
 			}
 			iter++;
 		});
-		fecha = week;	
+		fecha = week;
 	}
 }
 
@@ -74,7 +74,7 @@ function renderFixtureSegunda(week){
 			}
 			iter++;
 		});
-		fecha = week;	
+		fecha = week;
 	}
 }
 
@@ -95,7 +95,7 @@ function renderFixtureSegundaB(week){
 			}
 			iter++;
 		});
-		fecha = week;	
+		fecha = week;
 	}
 }
 
@@ -117,6 +117,6 @@ function renderFixtureFemenino(week){
 			}
 			iter++;
 		});
-		fecha = week;	
+		fecha = week;
 	}
 }

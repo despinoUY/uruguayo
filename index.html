@@ -46,7 +46,7 @@
     <script src="js/html2canvas.js"></script>
 
     <!-- Begin Oswald font -->
-     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <!-- End Oswald font -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -158,55 +158,28 @@
         <a id='fixtureC-a-ctx' style='display: none;'></a>
       </div>
 
-      <div class="col-lg-6" style="padding: 0">
-        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tIntermedioA')">Descargá esta tabla!</button>
-        <div id="tIntermedioA" class="panel panel-default" style="font-family: Oswald">
-          <div class="panel-heading" id="intermedioA-header" style="font-size:18px">Torneo Intermedio - Grupo A</div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="width: 30%">Equipo</th>
-                <th style="width: 8.75%">PJ</th>
-                <th style="width: 8.75%">PG</th>
-                <th style="width: 8.75%">PE</th>
-                <th style="width: 8.75%">PP</th>
-                <th style="width: 8.75%">GF</th>
-                <th style="width: 8.75%">GC</th>
-                <th style="width: 8.75%">DG</th>
-                <th style="width: 8.75%">Pts.</th>
-              </tr>
-            </thead>
-            <tbody id="intermedioA">
-            </tbody>
-          </table>
-        </div>
-        <a id='tIntermedioA-a-ctx' style='display: none;'></a>
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tIntermedioA')">Descargá esta tabla!</button>
+      <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Clausura - Tabla</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 8.75%">PJ</th>
+              <th style="width: 8.75%">PG</th>
+              <th style="width: 8.75%">PE</th>
+              <th style="width: 8.75%">PP</th>
+              <th style="width: 8.75%">GF</th>
+              <th style="width: 8.75%">GC</th>
+              <th style="width: 8.75%">DG</th>
+              <th style="width: 8.75%">Pts.</th>
+            </tr>
+          </thead>
+          <tbody id="clausura">
+          </tbody>
+        </table>
       </div>
-
-      <div class="col-lg-6" style="padding: 0">
-        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tIntermedioB')">Descargá esta tabla!</button>
-        <div id="tIntermedioB" class="panel panel-default" style="font-family: Oswald">
-          <div class="panel-heading" id="intermedioB-header" style="font-size:18px">Torneo Intermedio - Grupo B</div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="width: 30%">Equipo</th>
-                <th style="width: 8.75%">PJ</th>
-                <th style="width: 8.75%">PG</th>
-                <th style="width: 8.75%">PE</th>
-                <th style="width: 8.75%">PP</th>
-                <th style="width: 8.75%">GF</th>
-                <th style="width: 8.75%">GC</th>
-                <th style="width: 8.75%">DG</th>
-                <th style="width: 8.75%">Pts.</th>
-              </tr>
-            </thead>
-            <tbody id="intermedioB">
-            </tbody>
-          </table>
-        </div>
-        <a id='tIntermedioB-a-ctx' style='display: none;'></a>
-      </div>
+      <a id='tClausura-a-ctx' style='display: none;'></a>
 
       <div class="col-lg-6" style="padding: 0">
         <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tAnual')">Descargá esta tabla!</button>
@@ -215,6 +188,7 @@
           <table class="table">
             <thead>
               <tr>
+                <th></th>
                 <th style="width: 30%">Equipo</th>
                 <th style="width: 8.75%">PJ</th>
                 <th style="width: 8.75%">PG</th>
@@ -232,6 +206,7 @@
         </div>
         <a id='tAnual-a-ctx' style='display: none;'></a>
         <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+          <p>Con (*) se marcan los equipos que tienen o ya tuvieron fecha libre en el Torneo Clausura.</p>
           <p>En <mark style="background-color:#3c906a;">este fondo</mark> se marcan los dos equipos que clasificarían a la Copa Libertadores 2019.</p>
           <p>En <mark style="background-color:#47bda1;">este fondo</mark> se marcan los dos equipos que clasificarían a la fase previa de la Copa Libertadores 2019.</p>
           <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los cuatro equipos que clasificarían a la Copa Sudamericana 2019.</p>
