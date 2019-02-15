@@ -20,27 +20,19 @@ if (divisional == "primera"){
 if (torneo == "Intermedio"){
 	let iter = 0;
 	$(entry).each(function(){
-		if (iter < 8){
+		if (iter < 16){
 			if (Math.floor(iter % 2) == 0){
 				$('#intermedioA').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			} else {
 				$('#intermedioA').append('<tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			}
-		} else if (iter < 15) {
-			if (Math.floor(iter % 2) == 0){
-				$('#intermedioB').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-			} else {
-				$('#intermedioB').append('<tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
-			}
-		} else if (iter == 15) {
-			$('#intermedioB').append('<tr><td style="background-color:#CBCBCB" align="center" colspan="9">El Tanque Sisley no participa</tr>');
 		}
 		iter++;
 	});
 } else if ((torneo == "Apertura") || (torneo == "Clausura")) {
 	let iter = 0;
 	$(entry).each(function(){
-		if (iter < 15){
+		if (iter < 16){
 			if (Math.floor(iter % 2) == 0){
 				$('#clausura').append('<tr><td>'+this.gsx$equipo.$t+'</td><td align="center">'+this.gsx$pj.$t+'</td><td align="center">'+this.gsx$pg.$t+'</td><td align="center">'+this.gsx$pe.$t+'</td><td align="center">'+this.gsx$pp.$t+'</td><td align="center">'+this.gsx$gf.$t+'</td><td align="center">'+this.gsx$gc.$t+'</td><td align="center">'+this.gsx$dg.$t+'</td><td align="center">'+this.gsx$pts.$t+'</td></tr>');
 			} else {
@@ -54,6 +46,7 @@ if (torneo == "Intermedio"){
 
 if (divisional == "primera"){
 	// Loading Tabla Anual tables
+/*
 	iter = 0;
 	$(entry).each(function(){
 		if ($.inArray(this.title.$t,["Row: 3", torneo])>= 0){
@@ -62,7 +55,7 @@ if (divisional == "primera"){
 			$('#anual').append('<tr style="background-color:#47bda1"><td>'+this.gsx$fl.$t+'</td><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
 		} else if ($.inArray(this.title.$t,["Row: 9", "Row: 8", "Row: 7", "Row: 6"])>= 0){
 			$('#anual').append('<tr style="background-color:#5794FF"><td>'+this.gsx$fl.$t+'</td><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
-		} else if (iter < 15){
+		} else if (iter < 16){
 			if (Math.floor(iter % 2) == 0){
 				$('#anual').append('<tr><td>'+this.gsx$fl.$t+'</td><td>'+this.gsx$equipoan.$t+'</td><td align="center">'+this.gsx$pjan.$t+'</td><td align="center">'+this.gsx$pgan.$t+'</td><td align="center">'+this.gsx$pean.$t+'</td><td align="center">'+this.gsx$ppan.$t+'</td><td align="center">'+this.gsx$gfan.$t+'</td><td align="center">'+this.gsx$gcan.$t+'</td><td align="center">'+this.gsx$dgan.$t+'</td><td align="center">'+this.gsx$ptsan.$t+'</td></tr>');
 			} else {
@@ -71,13 +64,13 @@ if (divisional == "primera"){
 		}
 		iter++;
 	});
-
+*/
 	// Loading Tabla del Descenso tables
 	iter = 0;
 	$(entry).each(function(){
-		if ($.inArray(this.title.$t,["Row: 16", "Row: 15"])>= 0){
+		if ($.inArray(this.title.$t,["Row: 17" ,"Row: 16", "Row: 15"])>= 0){
 			$('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
-		} else if (iter < 15) {
+		} else if (iter < 16) {
 			if ((iter == 0) || (Math.floor(iter%2) == 0)) {
 				$('#descenso').append('</td><tr><td>'+this.gsx$equipo2.$t+'</td><td align="center">'+this.gsx$pj2.$t+'</td><td align="center">'+this.gsx$gfde.$t+'</td><td align="center">'+this.gsx$gcde.$t+'</td><td align="center">'+this.gsx$savg.$t+'</td><td align="center">'+this.gsx$pts2.$t+'</td><td align="center">'+this.gsx$avg.$t+'</td></tr>');
 			} else {

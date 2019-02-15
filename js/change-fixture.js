@@ -1,6 +1,6 @@
 // ID of the Google Spreadsheet
 var spreadsheetID = {
-		'primera':   "1EiRUYeVJDMstNGVABFXAqARRmwBbtlEkdQ5M0WWtJgE",
+		'primera':   "15KNt744z3a2QiF9zKNxMygQBlJkDRgOU7fzggQxfNtk",
 		'segunda':   "1WpbU0TWSl_-UUJ_OsLywnadnq2UG2DRC8Te-Xnd3DX4",
 		'segundab':  "1Npyx-thhvP7hFNcBCqLzHvUS4IpVb61pAL_sNU8CuYg",
 		'femeninoa': "1MvXQbIuk_hGiY1m3Dx-ANRhBRaUzg-QCu1nlzPTEeBs",
@@ -42,14 +42,11 @@ function renderFixture(week, head="Torneo"){
 				$('#fixture').text("");
 			}
 			if ((iter >= (week-1)*8) && (iter < (week)*8)) {
-				if (iter == (week*8)-1) {
-					$('#fixture').append('</td><tr><td  style="background-color:#CBCBCB" align="center" colspan="5">Fecha libre:</td></tr><tr style="background-color:#CBCBCB"><td align="center" colspan="5"><i>'+this.gsx$local.$t+'</i></td></tr>');
-				}
-	            else if (Math.floor(iter%2) == 0) {
+				if (Math.floor(iter%2) == 0) {
 					$('#fixture').append('</td><tr><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
-	            } else {
+        } else {
 					$('#fixture').append('</td><tr style="background-color:#CBCBCB"><td align="center">'+this.gsx$local.$t+'</td><td align="center">'+this.gsx$resl.$t+'</td><td align="center">-</td><td align="center">'+this.gsx$resv.$t+'</td><td align="center">'+this.gsx$visita.$t+'</td></tr><tr><td style="background-color:#CBCBCB" align="center" colspan="5"><i>'+this.gsx$specs.$t+'</i></td></tr>');
-	            }
+        }
 			}
 			iter++;
 		});
