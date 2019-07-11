@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8182433234890355",
+        enable_page_level_ads: true
+      });
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <meta property="og:url"         content="https://despinouy.github.io/uruguayo" />
+    <meta property="og:url"         content="http://www.campeonatouruguayo.uy" />
     <meta property="og:type"        content="article" />
-    <meta property="og:title"       content="Las tablas del Uruguayo" />
+    <meta property="og:title"       content="Campeonato Uruguayo | Las tablas del deporte uruguayo" />
     <meta property="og:description" content="¿Cansado de buscar las tablas del Campeonato Uruguayo (sobre todo la del descenso)? ¡Acá están!" />
-    <meta property="og:image"       content="https://despinouy.github.io/uruguayo/imgs/auf.jpg" />
+    <meta property="og:image"       content="http://www.campeonatouruguayo.uy/imgs/auf.jpg" />
 
-    <title>Las tablas del Uruguayo</title>
+    <meta name="keywords" content="Fútbol,Uruguayo,Uruguay,Tenfield,Campeonato,Soccer,Football,Uruguayan,Results,Peñarol,Nacional,Defensor Sporting,Danubio,Basquet,Básquetbol,Liga Uruguaya de Básquetbol,Aguada,Goes,Malvín,Hebraica Macabi">
+    <meta name="author" content="http://www.twitter.com/despinoUY">
+    <meta name="language" content="es">
+    <meta name="description" content="Sitio que centraliza las tablas de los campeonatos de todas las divisionales profesionales de la Asociación Uruguaya de Fútbol y otros deportes.">
+
+    <title>Campeonato Uruguayo | Las tablas del deporte uruguayo</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/change-fixture.js"></script>
 
     <!-- Begin Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -20,6 +37,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -28,7 +46,7 @@
     <script src="js/html2canvas.js"></script>
 
     <!-- Begin Oswald font -->
-     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <!-- End Oswald font -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,6 +57,32 @@
     <![endif]-->
   </head>
   <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=135741283637596&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
 
     <!-- Begin Google Analytics -->
     <script>
@@ -64,76 +108,140 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Las tablas del Uruguayo</a>
+            <a class="navbar-brand" href="/">Campeonato Uruguayo</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Inicio</a></li>
-<!--
-              <li><a href="more-stats.html">Más estadísticas</a></li>
--->
+              <li><a href="#">Primera División</a></li>
+              <li><a href="segunda.html">Segunda División</a></li>
+              <li><a href="segundab.html">Segunda B Nacional</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Femenino</a>
+                <ul class="dropdown-menu">
+                  <li><a href="femeninoa.html">Divisional A</a></li>
+                  <li><a href="femeninob.html">Divisional B</a></li>
+                </ul>
+              </li>
+
               <li><a href="https://www.twitter.com/despinoUY">Contacto</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.campeonatouruguayo.uy%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></li>
+              <li><a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Las%20tablas%20del%20Uruguayo%20(con%20la%20del%20Descenso%20inclu%C3%ADda!)&url=http://www.campeonatouruguayo.uy" data-size='large'></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
 
-      <!--
-      <div class="page-header">
-        <h1>Las tablas del Uruguayo</h1>
-        <p class="lead">¿Cansado de no encontrar las tablas del fútbol uruguayo? Acá las tenés.</p>
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('fixtureC')">Descargá el fixture de la fecha!</button>
+      <div class="panel panel-default" style="padding: 0; maxwidth: 100%;">
+        <div id="fixtureC" class="panel panel-default" style="font-family: Oswald; margin-bottom: 0;">
+          <div class="panel-heading" id="fixture-header" style="font-size:18px; text-align:center; position:relative">
+            <button class="btn" id="back" style="position: absolute; left:15px; width:32px; margin-top:-4px; display:inline;" onclick="renderFixture(parseInt(fecha)-1)">&lt;</button>
+            <div id="fixture-title">Primera División</div>
+            <button class="btn" id="forward" style="position: absolute; right:15px; width:32px; margin-top:-30px; display:inline;" onclick="renderFixture(parseInt(fecha)+1);">&gt;</button>
+          </div>
+          <table class="table" style='vertical-align:middle;'>
+            <thead>
+              <tr>
+                <th style="width: 35%">Local</th>
+                <th style="width: 10%"></th>
+                <th style="width: 10%"></th>
+                <th style="width: 10%"></th>
+                <th style="width: 35%">Visitante</th>
+              </tr>
+            </thead>
+            <tbody id="fixture">
+            </tbody>
+          </table>
+        </div>
+        <a id='fixtureC-a-ctx' style='display: none;'></a>
       </div>
-      -->
 
       <div class="col-lg-6" style="padding: 0">
-<!--
-      <button type="button" class="btn" style="margin-bottom: 5px;" onclick="ButtonClick1()">Descargá esta tabla!</button>
--->
-<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaApertura')">Descargá esta tabla!</button>
-      <div id="tablaApertura" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="ap-header" style="font-size:18px">Torneo Apertura - Última actualización: </div>
+      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tIntermedioA')">Descargá esta tabla!</button>
+      <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
+        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Apertura - Tabla</div>
         <table class="table">
           <thead>
             <tr>
-              <th >Equipo</th>
-              <th >PJ</th>
-              <th >PG</th>
-              <th >PE</th>
-              <th >PP</th>
-              <th >DG</th>
-              <th >Pts.</th>
+              <th style="width: 30%">Equipo</th>
+              <th style="width: 8.75%">PJ</th>
+              <th style="width: 8.75%">PG</th>
+              <th style="width: 8.75%">PE</th>
+              <th style="width: 8.75%">PP</th>
+              <th style="width: 8.75%">GF</th>
+              <th style="width: 8.75%">GC</th>
+              <th style="width: 8.75%">DG</th>
+              <th style="width: 8.75%">Pts.</th>
             </tr>
           </thead>
-          <tbody id="apertura">
+          <tbody id="clausura">
           </tbody>
         </table>
       </div>
-      <a id='tablaApertura-a-ctx' style='display: none;'></a>
-      </div>
-
+      <a id='tClausura-a-ctx' style='display: none;'></a>
+    </div>
+<!--
       <div class="col-lg-6" style="padding: 0">
-<button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
-      <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
-        <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso - Última actualización: </div>
-        <table class="table" style="font-family: Oswald">
-          <thead>
-            <tr>
-              <th >Equipo</th>
-              <th >PJ</th>
-              <th >'16</th>
-              <th >'17</th>
-              <th >Pts.</th>
-              <th >Avg.</th>
-            </tr>
-          </thead>
-          <tbody id="descenso">
-          </tbody>
-        </table>
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tAnual')">Descargá esta tabla!</button>
+        <div id="tAnual" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="anual-header" style="font-size:18px">Tabla Anual</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="anual">
+            </tbody>
+          </table>
+        </div>
+        <a id='tAnual-a-ctx' style='display: none;'></a>
+        <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+          <p>Con (*) se marcan los equipos que tienen o ya tuvieron fecha libre en el Torneo Clausura.</p>
+          <p>En <mark style="background-color:#3c906a;">este fondo</mark> se marcan los dos equipos que clasificarían a la Copa Libertadores 2019.</p>
+          <p>En <mark style="background-color:#47bda1;">este fondo</mark> se marcan los dos equipos que clasificarían a la fase previa de la Copa Libertadores 2019.</p>
+          <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los cuatro equipos que clasificarían a la Copa Sudamericana 2019.</p>
+        </div>
       </div>
-      <a id='tablaDescenso-a-ctx' style='display: none;'></a>
+-->
+      <div class="col-lg-6" style="padding: 0">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+        <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
+          <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso</div>
+          <table class="table" style="font-family: Oswald">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 11.7%">PJ</th>
+                <th style="width: 11.7%">GF</th>
+                <th style="width: 11.7%">GC</th>
+                <th style="width: 11.7%">G Avg.</th>
+                <th style="width: 11.7%">Pts.</th>
+                <th style="width: 11.7%">Avg.</th>
+              </tr>
+            </thead>
+            <tbody id="descenso">
+            </tbody>
+          </table>
+        </div>
+        <a id='tablaDescenso-a-ctx' style='display: none;'></a>
+        <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
+          <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los tres descensos a Segunda División para el año 2020.</p>
+        </div>
       </div>
 
-    <div id="hiddenField"><div id="divHidden"></div></div>
+      <div id="hiddenField"><div id="divHidden"></div></div>
 
     </div>
 
@@ -143,61 +251,16 @@
     <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        // ID of the Google Spreadsheet
-        var spreadsheetID = "1NHSPAJEYSOqffWPy_pAnVVwsftfk1nisJ9OMWl0d0rQ";
-
-        // Make sure it is public or set to Anyone with link can view 
-        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
-
-        $.getJSON(url, function(data) {
-
-          var entry = data.feed.entry;
-          var date = entry[0].updated.$t.split("-");
-          var day = date[2].split("T");
-          document.getElementById('ap-header').innerHTML = document.getElementById('ap-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
-          document.getElementById('desc-header').innerHTML = document.getElementById('desc-header').innerHTML + day[0] + '/' + date[1] + '/' + date[0];
-          var iter = 0;
-
-          $(entry).each(function(){
-          if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-            $('#apertura').append('</td><tr><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
-          } else {
-            $('#apertura').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$equipo.$t+'</td><td>'+this.gsx$pj.$t+'<td>'+this.gsx$pg.$t+'</td><td>'+this.gsx$pe.$t+'</td></td><td>'+this.gsx$pp.$t+'</td><td>'+this.gsx$dg.$t+'</td><td>'+this.gsx$pts.$t+'</td></tr>');
-          }
-          if ($.inArray(this.title.$t,["Row: 17", "Row: 16", "Row: 15"])>= 0){
-            $('#descenso').append('</td><tr style="background-color: #e29453"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
-          } else {
-            if ((iter == 0) || (Math.floor(iter%2) == 0)) {
-                $('#descenso').append('</td><tr><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
-            } else {
-                $('#descenso').append('</td><tr style="background-color:#CBCBCB"><td>'+this.gsx$eq2.$t+'</td><td>'+this.gsx$pj2.$t+'<td>'+this.gsx$pt16.$t+'</td><td>'+this.gsx$pt17.$t+'</td><td>'+this.gsx$pts2.$t+'</td><td>'+this.gsx$avg.$t+'</td></tr>');
-            }
-          }
-          iter++;
-          });
-        });
-
-        function clicketyClick(name){
-          var divWidth = document.getElementById(name).outerWidth;
-          var divHeight = document.getElementById(name).outerHeight;
-          var anchor = document.getElementById(name+'-a-ctx');
-          html2canvas(document.getElementById(name), {
-            onrendered: function(canvas){
-              document.body.appendChild(canvas);
-              canvas.style.display = 'none';
-              canvas.id = name+'-ctx';
-              var ctx = document.getElementById(name+'-ctx');
-              var img = ctx.toDataURL("image/png");
-              anchor.href = ctx.toDataURL("image/png");
-              anchor.download = name+'.png';
-              anchor.click();
-              //document.getElementById('tablaApertura').appendChild(canvas);
-            },
-            width: divWidth,
-            height: divHeight,
-          });
-        };
+        var divisional = "primera";
     </script>
+    <script type="text/javascript" src="js/render-data.js"></script>
+    <script type="text/javascript" src="js/load-tables.js"></script>
 
   </body>
+  <footer class="footer">
+    <hr>
+    <div style="margin-bottom:5px; margin-top:5px;" class="container" align="center">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.
+    </div>
+  </footer>
 </html>

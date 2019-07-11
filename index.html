@@ -159,38 +159,62 @@
       </div>
 
       <div class="col-lg-6" style="padding: 0">
-      <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tIntermedioA')">Descargá esta tabla!</button>
-      <div id="tClausura" class="panel panel-default" style="font-family: Oswald">
-        <div class="panel-heading" id="clausura-header" style="font-size:18px">Torneo Apertura - Tabla</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th style="width: 30%">Equipo</th>
-              <th style="width: 8.75%">PJ</th>
-              <th style="width: 8.75%">PG</th>
-              <th style="width: 8.75%">PE</th>
-              <th style="width: 8.75%">PP</th>
-              <th style="width: 8.75%">GF</th>
-              <th style="width: 8.75%">GC</th>
-              <th style="width: 8.75%">DG</th>
-              <th style="width: 8.75%">Pts.</th>
-            </tr>
-          </thead>
-          <tbody id="clausura">
-          </tbody>
-        </table>
-      </div>
-      <a id='tClausura-a-ctx' style='display: none;'></a>
-    </div>
-<!--
-      <div class="col-lg-6" style="padding: 0">
-        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tAnual')">Descargá esta tabla!</button>
-        <div id="tAnual" class="panel panel-default" style="font-family: Oswald">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('intermedioSerieA')">Descargá esta tabla!</button>
+        <div id="intermedioSerieA" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="serieA-header" style="font-size:18px">Torneo Intermedio - Serie A</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="serie-a">
+            </tbody>
+          </table>
+        </div>
+        <a id='intermedioSerieA-a-ctx' style='display: none;'></a>
+        </div>
+
+        <div class="col-lg-6" style="padding: 0">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('intermedioSerieB')">Descargá esta tabla!</button>
+        <div id="intermedioSerieB" class="panel panel-default" style="font-family: Oswald">
+          <div class="panel-heading" id="serieB-header" style="font-size:18px">Torneo Intermedio - Serie B</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 30%">Equipo</th>
+                <th style="width: 8.75%">PJ</th>
+                <th style="width: 8.75%">PG</th>
+                <th style="width: 8.75%">PE</th>
+                <th style="width: 8.75%">PP</th>
+                <th style="width: 8.75%">GF</th>
+                <th style="width: 8.75%">GC</th>
+                <th style="width: 8.75%">DG</th>
+                <th style="width: 8.75%">Pts.</th>
+              </tr>
+            </thead>
+            <tbody id="serie-b">
+            </tbody>
+          </table>
+        </div>
+        <a id='intermedioSerieB-a-ctx' style='display: none;'></a>
+        </div>
+
+        <div class="col-lg-6" style="padding: 0">
+        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaAnual')">Descargá esta tabla!</button>
+        <div id="tablaAnual" class="panel panel-default" style="font-family: Oswald">
           <div class="panel-heading" id="anual-header" style="font-size:18px">Tabla Anual</div>
           <table class="table">
             <thead>
               <tr>
-                <th></th>
                 <th style="width: 30%">Equipo</th>
                 <th style="width: 8.75%">PJ</th>
                 <th style="width: 8.75%">PG</th>
@@ -206,29 +230,27 @@
             </tbody>
           </table>
         </div>
-        <a id='tAnual-a-ctx' style='display: none;'></a>
+        <a id='tablaAnual-a-ctx' style='display: none;'></a>
         <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
-          <p>Con (*) se marcan los equipos que tienen o ya tuvieron fecha libre en el Torneo Clausura.</p>
-          <p>En <mark style="background-color:#3c906a;">este fondo</mark> se marcan los dos equipos que clasificarían a la Copa Libertadores 2019.</p>
-          <p>En <mark style="background-color:#47bda1;">este fondo</mark> se marcan los dos equipos que clasificarían a la fase previa de la Copa Libertadores 2019.</p>
-          <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los cuatro equipos que clasificarían a la Copa Sudamericana 2019.</p>
+          <p>En <mark style="background-color:#3c906a;">este fondo</mark> se marcan los dos clasificados para la fase de grupos de la Copa Libertadores del año 2020.</p>
+          <p>En <mark style="background-color:#47bda1;">este fondo</mark> se marcan los dos clasificados para la fase de clasificación de la Copa Libertadores del año 2020.</p>
+          <p>En <mark style="background-color:#5794FF;">este fondo</mark> se marcan los dos clasificados para la Copa Sudamericana del año 2020.</p>
         </div>
       </div>
--->
-      <div class="col-lg-6" style="padding: 0">
-        <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
+
+        <div class="col-lg-6" style="padding: 0">
+  <button type="button" class="btn" id="buttonAp" style="margin-bottom: 5px;" onClick="clicketyClick('tablaDescenso')">Descargá esta tabla!</button>
         <div class="panel panel-default" id="tablaDescenso" style="font-family: Oswald">
           <div class="panel-heading" id="desc-header" style="font-size:18px">Tabla del Descenso</div>
           <table class="table" style="font-family: Oswald">
             <thead>
               <tr>
                 <th style="width: 30%">Equipo</th>
-                <th style="width: 11.7%">PJ</th>
-                <th style="width: 11.7%">GF</th>
-                <th style="width: 11.7%">GC</th>
-                <th style="width: 11.7%">G Avg.</th>
-                <th style="width: 11.7%">Pts.</th>
-                <th style="width: 11.7%">Avg.</th>
+                <th style="width: 14%">PJ</th>
+                <th style="width: 14%">'16</th>
+                <th style="width: 14%">'17</th>
+                <th style="width: 14%">Pts.</th>
+                <th style="width: 14%">Avg.</th>
               </tr>
             </thead>
             <tbody id="descenso">
@@ -239,11 +261,11 @@
         <div style="font-family: Oswald; padding-left: 10px; padding-right: 10px;">
           <p>En <mark style="background-color:#e29453;">este fondo</mark> se marcan los tres descensos a Segunda División para el año 2020.</p>
         </div>
-      </div>
+        </div>
 
       <div id="hiddenField"><div id="divHidden"></div></div>
 
-    </div>
+      </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
